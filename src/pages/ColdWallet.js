@@ -3817,13 +3817,52 @@ const ColdWallet = () => {
             
             <FormGroup>
               <Label htmlFor="recipient">Recipient Address</Label>
+              
+              {/* Wallet selector - only show if there are other wallets */}
+              {wallets && wallets.length > 1 && (
+                <div style={{ marginBottom: '0.75rem' }}>
+                  <Label style={{ fontSize: '0.85rem', color: '#00aa33', marginBottom: '0.25rem' }}>
+                    Select from your wallets:
+                  </Label>
+                  <select
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem',
+                      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                      color: '#00cc33',
+                      border: '1px solid #00cc33',
+                      borderRadius: '2px',
+                      fontFamily: 'monospace',
+                      fontSize: '0.9rem'
+                    }}
+                    value=""
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setTxRecipient(e.target.value);
+                      }
+                    }}
+                  >
+                    <option value="">-- Select a wallet or enter address manually --</option>
+                    {wallets
+                      .filter(wallet => wallet.address !== activeWallet?.address) // Exclude current wallet
+                      .map((wallet, index) => (
+                        <option key={wallet.address || index} value={wallet.address}>
+                          {wallet.name || `Wallet ${index + 1}`} - {wallet.address?.slice(0, 6)}...{wallet.address?.slice(-4)} 
+                          {wallet.networkId && ` (${wallet.networkId.toUpperCase()})`}
+                        </option>
+                      ))
+                    }
+                  </select>
+                </div>
+              )}
+              
               <InputWrapper>
                 <Input 
                   id="recipient"
                   type="text"
                   value={txRecipient}
                   onChange={(e) => setTxRecipient(e.target.value)}
-                  placeholder="0x..."
+                  placeholder="0x... or select from wallets above"
                 />
               </InputWrapper>
             </FormGroup>

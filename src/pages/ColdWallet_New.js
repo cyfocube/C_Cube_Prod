@@ -480,6 +480,7 @@ const ColdWallet = () => {
               selectedNetwork={selectedNetwork}
               activeWallet={activeWallet}
               networks={networks}
+              wallets={wallets}
               txNetwork={txNetwork}
               setTxNetwork={setTxNetwork}
               txType={txType}
