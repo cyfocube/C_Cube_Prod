@@ -27,6 +27,9 @@ const HeaderContent = styled.div`
 const Logo = styled.div`
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 0px;
+  z-index: 10;
 `;
 
 const LogoText = styled.span`

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { PageBackground, PageContent } from '../components/shared/PageBackground';
 
 const WelcomeContainer = styled.div`
   max-width: 800px;
@@ -10,7 +11,7 @@ const WelcomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 80vh;
 `;
 
 const Card = styled.div`
@@ -85,7 +86,9 @@ const WelcomeScreen = () => {
   };
 
   return (
-    <WelcomeContainer>
+    <PageBackground>
+      <PageContent>
+        <WelcomeContainer>
       <Card>
         <Title>Welcome to C-Cube</Title>
         <Subtitle>
@@ -103,7 +106,9 @@ const WelcomeScreen = () => {
           </ActionButton>
         </ButtonContainer>
       </Card>
-    </WelcomeContainer>
+        </WelcomeContainer>
+      </PageContent>
+    </PageBackground>
   );
 };
 

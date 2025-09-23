@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from '../context/AppContext';
 import { ethers } from 'ethers';
+import { PageBackground, PageContent } from '../components/shared/PageBackground';
 
 const BroadcastContainer = styled.div`
   max-width: 800px;
@@ -220,7 +221,9 @@ const Broadcast = () => {
   };
 
   return (
-    <BroadcastContainer>
+    <PageBackground>
+      <PageContent>
+        <BroadcastContainer>
       <Card>
         <Title>Broadcast Transaction</Title>
         
@@ -326,7 +329,9 @@ const Broadcast = () => {
           </div>
         )}
       </Card>
-    </BroadcastContainer>
+        </BroadcastContainer>
+      </PageContent>
+    </PageBackground>
   );
 };
 

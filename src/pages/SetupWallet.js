@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from '../context/AppContext';
 import { ethers } from 'ethers';
+import { PageBackground, PageContent } from '../components/shared/PageBackground';
 
 const SetupContainer = styled.div`
   max-width: 800px;
@@ -254,7 +255,9 @@ const SetupWallet = ({ onSetupComplete }) => {
   };
 
   return (
-    <SetupContainer>
+    <PageBackground>
+      <PageContent>
+        <SetupContainer>
       <Card>
         <Title>
           {activeTab === 'create' ? 'Create New Secure Wallet' : 'Recover Your Wallet'}
@@ -438,7 +441,9 @@ const SetupWallet = ({ onSetupComplete }) => {
           </Form>
         )}
       </Card>
-    </SetupContainer>
+        </SetupContainer>
+      </PageContent>
+    </PageBackground>
   );
 };
 

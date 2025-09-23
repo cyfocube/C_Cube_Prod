@@ -4,9 +4,24 @@ import Footer from '../components/Footer_New';
 
 const ContentContainer = styled.div`
   min-height: 100vh;
-  background: transparent;
+  background: rgba(26, 26, 46, 0.7);
+  position: relative;
+  overflow-x: hidden;
   padding: 80px 20px 40px;
   color: #e0e0e0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff10" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
 `;
 
 const ContentCard = styled.div`
@@ -19,6 +34,8 @@ const ContentCard = styled.div`
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 `;
 
 const Header = styled.div`

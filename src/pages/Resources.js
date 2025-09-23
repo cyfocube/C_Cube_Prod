@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PageBackground, PageContent } from '../components/shared/PageBackground';
 
 const ResourcesContainer = styled.div`
   max-width: 900px;
@@ -80,7 +81,9 @@ const Resources = () => {
   const [activeTab, setActiveTab] = React.useState('guide');
 
   return (
-    <ResourcesContainer>
+    <PageBackground>
+      <PageContent>
+        <ResourcesContainer>
       <Card>
         <Title>Resources</Title>
         
@@ -271,7 +274,9 @@ const Resources = () => {
           </Section>
         )}
       </Card>
-    </ResourcesContainer>
+        </ResourcesContainer>
+      </PageContent>
+    </PageBackground>
   );
 };
 

@@ -341,8 +341,8 @@ const Landing = ({ onAppSelect }) => {
           <TextContainer>
             <HeroTitle>Learn and Practice Blockchain Security</HeroTitle>
             <HeroSubtitle>
-              Master blockchain technology through hands-on learning and practical tools. 
-              Build your expertise while practicing real-world crypto security techniques.
+              Master blockchain technology through AI-powered hands-on learning, interactive video tutorials, and practical tools. 
+              Build your expertise while practicing real-world crypto security techniques with intelligent guidance.
             </HeroSubtitle>
             
             <HeroStats>

@@ -12,6 +12,7 @@ const LogoContainer = styled.div`
   align-items: center;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  margin-left: 5px;
 
   &:hover {
     opacity: 0.8;
@@ -41,9 +42,13 @@ const LogoText = styled.span`
   color: #e0e0e0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   text-decoration: none;
-  margin-left: -30px;
+  margin-left: -35px;
   transform: translateY(-4px);
   display: inline-block;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const CyFoCubeLogo = ({ size = 'normal', onClick, showText = true }) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PageBackground, PageContent } from '../components/shared/PageBackground';
 
 const ComingSoonContainer = styled.div`
-  min-height: 100vh;
-  background: rgba(102, 126, 234, 0.7);
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +150,9 @@ const ComingSoon = ({ onNavigate }) => {
   };
 
   return (
-    <ComingSoonContainer className="website-page">
+    <PageBackground>
+      <PageContent>
+        <ComingSoonContainer className="website-page">
       <ContentWrapper>
         <IconContainer>
           <Icon>�</Icon>
@@ -175,7 +177,9 @@ const ComingSoon = ({ onNavigate }) => {
           <NotifyButton>Notify Me</NotifyButton>
         </NotifySection>
       </ContentWrapper>
-    </ComingSoonContainer>
+        </ComingSoonContainer>
+      </PageContent>
+    </PageBackground>
   );
 };
 
