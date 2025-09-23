@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C-Cube Video Player</title>
+    <style>
+        body { 
+            background: #0c0c0c; 
+            color: #fff; 
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 { 
+            color: #00cc33; 
+            text-align: center; 
+        }
+        .video-container { 
+            margin: 20px 0; 
+            text-align: center; 
+        }
+        video { 
+            width: 100%; 
+            max-width: 1000px; 
+            height: auto; 
+            background: #000;
+        }
+        .info {
+            background: #1a1a1a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #00cc33;
+        }
+        .audio-test {
+            margin: 20px 0;
+            padding: 15px;
+            background: #252525;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 C-Cube Video with Audio</h1>
+    
+    <div class="info">
+        <h3>🔊 Audio Test</h3>
+        <p>First, test if audio works with a simple audio file:</p>
+        <audio controls style="width: 100%;">
+            <source src="output/section_00_audio.wav" type="audio/wav">
+            Your browser doesn't support audio.
+        </audio>
+    </div>
+    
+    <div class="video-container">
+        <h3>🎯 ElevenLabs Professional Tutorial</h3>
+        <video controls autoplay muted id="mainVideo" style="border: 2px solid #00cc33;">
+            <source src="output/CCube_Tutorial_ElevenLabs_Professional.mp4" type="video/mp4">
+            Your browser doesn't support video.
+        </video>
+        <div class="info">
+            <p><strong>📱 Controls:</strong></p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Click the 🔊 button to unmute</li>
+                <li>Use volume slider to adjust</li>
+                <li>Right-click for more options</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Force audio to be enabled
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('mainVideo');
+            
+            // Try to unmute after user interaction
+            video.addEventListener('click', function() {
+                video.muted = false;
+                video.volume = 0.8;
+                console.log('Video unmuted, volume set to 0.8');
+            });
+            
+            // Log audio status
+            video.addEventListener('loadedmetadata', function() {
+                console.log('Video loaded:');
+                console.log('- Has audio tracks:', video.audioTracks ? video.audioTracks.length : 'Unknown');
+                console.log('- Volume:', video.volume);
+                console.log('- Muted:', video.muted);
+            });
+            
+            video.addEventListener('play', function() {
+                console.log('Video playing - Volume:', video.volume, 'Muted:', video.muted);
+            });
+        });
+    </script>
+</body>
+</html>

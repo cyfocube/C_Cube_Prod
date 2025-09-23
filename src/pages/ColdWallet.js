@@ -1592,6 +1592,23 @@ const ColdWallet = () => {
     }
   }, [activeWallet]);
 
+  // Clear transaction state when activeWallet changes (including when wallet is removed)
+  useEffect(() => {
+    // Clear all transaction-related state when wallet changes
+    setSignedTransaction('');
+    setTxRecipient('');
+    setTxAmount('');
+    setTxData('');
+    setTokenAddress('');
+    setTokenSymbol('');
+    setTokenDecimals(18);
+    setPassword('');
+    setDecryptedWallet(null);
+    setMnemonic('');
+    setError('');
+    setSuccess('');
+  }, [activeWallet]);
+
   const validatePassword = () => {
     if (usePasswordForNewWallet) {
       if (newWalletPassword.length < 8) {
@@ -1640,6 +1657,19 @@ const ColdWallet = () => {
     if (confirmed) {
       try {
         removeWallet(activeWallet);
+        
+        // Clear all transaction-related state when wallet is removed
+        setSignedTransaction('');
+        setTxRecipient('');
+        setTxAmount('');
+        setTxData('');
+        setTokenAddress('');
+        setTokenSymbol('');
+        setTokenDecimals(18);
+        setPassword('');
+        setDecryptedWallet(null);
+        setMnemonic('');
+        
         setSuccess(`Wallet "${walletName}" has been removed successfully`);
       } catch (err) {
         setError(`Failed to remove wallet: ${err.message}`);

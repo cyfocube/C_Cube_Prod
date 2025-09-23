@@ -1,0 +1,29 @@
+C-Cube Security Best Practices Script
+
+Security is the foundation of cryptocurrency storage. This tutorial covers essential security practices for C-Cube users.
+
+First Principle: Your Keys, Your Responsibility
+C-Cube stores your private keys encrypted on your device only. We cannot access your funds or recover lost passwords. This design ensures maximum security but requires careful key management on your part.
+
+Second Principle: Recovery Phrases Are Critical
+Your recovery phrase is a series of words that can restore your entire wallet. Write it down on paper and store it in multiple secure locations. Never store it digitally or take photos of it.
+
+Third Principle: Strong Passwords Matter
+Use a strong, unique password for your C-Cube wallet. Include uppercase and lowercase letters, numbers, and special characters. Never reuse passwords from other accounts.
+
+Fourth Principle: Verify Everything
+Always double-check recipient addresses and transaction amounts before confirming. Cryptocurrency transactions are irreversible once confirmed on the blockchain.
+
+Fifth Principle: Start Small
+When first using C-Cube, test with small amounts to ensure you understand the process. Gradually increase amounts as you become more confident.
+
+Sixth Principle: Offline is Safer
+For maximum security, use C-Cube on a computer that never connects to the internet. This eliminates the risk of online attacks entirely.
+
+Seventh Principle: Regular Backups
+Regularly verify that your recovery phrase backup is secure and accessible. Test recovery on a separate device if possible.
+
+Eighth Principle: Stay Updated
+Keep C-Cube updated to the latest version to ensure you have the latest security improvements and features.
+
+Following these principles will help ensure your cryptocurrency remains safe and secure.

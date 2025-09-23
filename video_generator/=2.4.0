@@ -1,0 +1,11 @@
+Collecting gtts
+  Downloading gTTS-2.5.4-py3-none-any.whl.metadata (4.1 kB)
+Requirement already satisfied: requests<3,>=2.27 in /opt/anaconda3/lib/python3.12/site-packages (from gtts) (2.32.3)
+Requirement already satisfied: click<8.2,>=7.1 in /opt/anaconda3/lib/python3.12/site-packages (from gtts) (8.1.7)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/anaconda3/lib/python3.12/site-packages (from requests<3,>=2.27->gtts) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/anaconda3/lib/python3.12/site-packages (from requests<3,>=2.27->gtts) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/anaconda3/lib/python3.12/site-packages (from requests<3,>=2.27->gtts) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/anaconda3/lib/python3.12/site-packages (from requests<3,>=2.27->gtts) (2024.8.30)
+Downloading gTTS-2.5.4-py3-none-any.whl (29 kB)
+Installing collected packages: gtts
+Successfully installed gtts-2.5.4

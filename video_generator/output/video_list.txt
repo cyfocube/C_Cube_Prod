@@ -1,0 +1,5 @@
+file 'output/Welcome_Tutorial.mp4'
+file 'output/Security_Tutorial.mp4'
+file 'output/Creating_Wallet_Tutorial.mp4'
+file 'output/Networks_Tutorial.mp4'
+file 'output/Transactions_Tutorial.mp4'

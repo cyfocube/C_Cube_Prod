@@ -110,6 +110,23 @@ const ColdWallet = () => {
     }
   }, [selectedNetwork, wallets, activeWallet, setActiveWallet]);
 
+  // Clear transaction state when activeWallet changes (including when wallet is removed)
+  useEffect(() => {
+    // Clear all transaction-related state when wallet changes
+    setSignedTransaction('');
+    setTxRecipient('');
+    setTxAmount('');
+    setTxData('');
+    setTokenAddress('');
+    setTokenSymbol('');
+    setTokenDecimals(18);
+    setPassword('');
+    setDecryptedWallet(null);
+    setMnemonic('');
+    setError('');
+    setSuccess('');
+  }, [activeWallet]);
+
   // State variables
   const [activeTab, setActiveTab] = useState('info');
   const [showPrivateKey, setShowPrivateKey] = useState(false);

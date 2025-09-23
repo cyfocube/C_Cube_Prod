@@ -238,25 +238,26 @@ const Resources = () => {
         {activeTab === 'about' && (
           <Section>
             <Subtitle>About C-Cube</Subtitle>
-            <p>C-Cube is an open-source application designed to provide the highest level of security for cryptocurrency storage. Built with Electron and React, it works across Windows, macOS, and Linux platforms.</p>
+            <p>C-Cube is an open-source educational wallet application designed to help users learn about cryptocurrency storage safely. Built with React and available as both a desktop application (Electron) and web application, it works across Windows, macOS, Linux, and all modern web browsers.</p>
             
             <Subtitle>Our Philosophy</Subtitle>
-            <p>We believe that security should be the primary concern when storing cryptocurrencies. By creating a cold wallet solution that works completely offline, we aim to eliminate the most common attack vectors that compromise crypto assets.</p>
+            <p>We believe that education should be the foundation of cryptocurrency security. By creating a tutorial wallet solution that demonstrates cold wallet functionality in a safe learning environment, we aim to teach users about security best practices without risking real funds.</p>
             
             <Quote>
-              "Security is not just a feature; it's our core design principle. Every decision in building this application has been made with security as the top priority."
+              "Education is the best security. Every feature in this application has been designed to teach cryptocurrency safety in a risk-free environment."
             </Quote>
             
             <Subtitle>Technology</Subtitle>
             <List>
-              <ListItem><strong>Electron & React</strong> - For a responsive and cross-platform desktop experience</ListItem>
-              <ListItem><strong>ethers.js</strong> - For secure Ethereum wallet operations</ListItem>
-              <ListItem><strong>AES Encryption</strong> - For secure wallet storage</ListItem>
-              <ListItem><strong>Offline-First Design</strong> - To ensure private keys never touch the internet</ListItem>
+              <ListItem><strong>React & Modern Web Technologies</strong> - For a responsive user experience across desktop and web</ListItem>
+              <ListItem><strong>Electron (Desktop)</strong> - For enhanced security and native desktop features</ListItem>
+              <ListItem><strong>ethers.js</strong> - For educational blockchain wallet operations</ListItem>
+              <ListItem><strong>AES Encryption</strong> - For demonstrating secure wallet storage practices</ListItem>
+              <ListItem><strong>Educational Offline-First Design</strong> - To teach users about cold wallet security concepts</ListItem>
             </List>
             
             <Subtitle>Privacy Policy</Subtitle>
-            <p>We don't collect any user data. All wallet information remains on your local device and is never transmitted to our servers or any third parties. Your privacy is entirely in your hands.</p>
+            <p>We don't collect any user data. All tutorial wallet information remains on your local device and is never transmitted to our servers or any third parties. This is an educational tool - your learning privacy is entirely in your hands.</p>
             
             <Subtitle>Open Source</Subtitle>
             <p>This application is open source, allowing the community to verify our security claims and contribute to improving the software. The source code is available on GitHub.</p>

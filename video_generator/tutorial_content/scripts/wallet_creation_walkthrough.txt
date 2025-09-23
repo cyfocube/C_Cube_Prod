@@ -1,0 +1,37 @@
+C-Cube Wallet Creation Walkthrough Script
+
+Let's create your first C-Cube wallet step by step.
+
+Step 1: Security Acknowledgment
+When you first open C-Cube, you'll see a security acknowledgment. Read this carefully as it explains your responsibilities as a cryptocurrency user. Check the box to acknowledge that you understand the risks and responsibilities.
+
+Step 2: Choose Network Type
+Select whether you want a single-network wallet or multi-chain wallet. For beginners, we recommend starting with a single network like Ethereum or Bitcoin.
+
+Step 3: Network Selection
+Choose your specific blockchain network. Popular options include:
+- Ethereum Mainnet for ETH and ERC-20 tokens
+- Bitcoin for BTC transactions
+- Other networks as needed
+
+Step 4: Password Protection
+Enable password protection for an additional security layer. Choose a strong password that you'll remember but others cannot guess. This password encrypts your wallet file on disk.
+
+Step 5: Generate Recovery Phrase
+C-Cube will generate a 12 or 24-word recovery phrase. This is crucial - write it down immediately and store it securely. This phrase can recover your entire wallet if needed.
+
+Step 6: Verify Recovery Phrase
+You'll be asked to verify your recovery phrase by selecting words in the correct order. This ensures you've recorded it accurately.
+
+Step 7: Wallet Creation Complete
+Your wallet is now created and ready to use. You'll see your wallet address, which you can use to receive cryptocurrency.
+
+Step 8: First Steps
+- Copy your receiving address
+- Test with a small amount first
+- Verify the transaction appears in your wallet
+- Once confirmed, you can proceed with larger amounts
+
+Remember: Never share your recovery phrase or private keys with anyone.
+
+Your C-Cube wallet is now ready for secure cryptocurrency storage.

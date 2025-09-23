@@ -1,0 +1,28 @@
+C-Cube Cold Wallet - Getting Started Tutorial Script
+
+Welcome to C-Cube Cold Wallet, your secure offline cryptocurrency storage solution.
+
+This tutorial will guide you through creating your first wallet and understanding the key security principles that keep your cryptocurrency safe.
+
+C-Cube is designed with security as the top priority. Your private keys are encrypted and stored only on your device, never transmitted online or stored on remote servers.
+
+Key Features:
+- Complete offline operation for maximum security
+- Military-grade AES-256 encryption
+- Support for multiple blockchain networks
+- Open-source code for transparency and trust
+- User-friendly interface for ease of use
+
+Before we begin, it's important to understand that cryptocurrency security is your responsibility. C-Cube provides the tools, but you must follow security best practices.
+
+Always backup your recovery phrases in a secure location. These phrases are the only way to recover your wallet if your device is lost or damaged.
+
+Never share your private keys or recovery phrases with anyone. Legitimate services will never ask for this information.
+
+Use strong, unique passwords and enable all available security features.
+
+In the next steps, we'll walk through creating your first wallet, setting up security measures, and making your first transaction.
+
+Remember to start with small amounts while you learn the system, then gradually increase as you become more comfortable.
+
+Thank you for choosing C-Cube for your cryptocurrency security needs.

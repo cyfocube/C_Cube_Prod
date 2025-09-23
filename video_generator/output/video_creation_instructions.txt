@@ -1,0 +1,32 @@
+C-CUBE TUTORIAL VIDEO CREATION INSTRUCTIONS
+==================================================
+
+Frames saved to: output/frames
+Total frames: 2250
+Frame rate: 15 fps
+Duration: 150 seconds
+
+AUDIO FILES:
+Section 1: output/section_00.aiff
+Section 2: output/section_01.aiff
+Section 3: output/section_02.aiff
+Section 4: output/section_03.aiff
+Section 5: output/section_04.aiff
+Section 6: output/section_05.aiff
+Section 7: output/section_06.aiff
+Section 8: output/section_07.aiff
+Section 9: output/section_08.aiff
+Section 10: output/section_09.aiff
+Section 11: output/section_10.aiff
+Section 12: output/section_11.aiff
+Section 13: output/section_12.aiff
+Section 14: output/section_13.aiff
+Section 15: output/section_14.aiff
+
+TO CREATE VIDEO:
+1. Install FFmpeg: brew install ffmpeg
+2. Run this command:
+
+ffmpeg -y -framerate 15 -i output/frames/frame_%05d.png -f concat -safe 0 -i output/audio_list.txt -c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest CCube_Tutorial_Complete.mp4
+
+OR use any video editing software that supports image sequences.

@@ -10,6 +10,7 @@ import { AppProvider } from './context/AppContext';
 import SetupWallet from './pages/SetupWallet';
 import WelcomeScreen from './pages/WelcomeScreen';
 import SecurityPrompt from './components/SecurityPrompt';
+import WebWarningBanner from './components/WebWarningBanner';
 
 function App() {
   const [isSetup, setIsSetup] = useState(false);
@@ -43,6 +44,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <WebWarningBanner />
       <AppProvider>
         <Router>
           <Layout>

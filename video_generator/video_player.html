@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Cube Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0c0c0c;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #00cc33;
+            margin-bottom: 30px;
+        }
+        
+        .video-container {
+            margin-bottom: 30px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #00cc33;
+        }
+        
+        .video-title {
+            color: #00ff41;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background: #000;
+        }
+        
+        .video-info {
+            margin-top: 10px;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .controls-info {
+            background: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00cc33;
+        }
+        
+        .controls-info h3 {
+            color: #00ff41;
+            margin-top: 0;
+        }
+        
+        .controls-info ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .controls-info li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 C-Cube Tutorial Video Player</h1>
+        
+        <div class="controls-info">
+            <h3>🔊 Audio Controls</h3>
+            <ul>
+                <li><strong>Space bar:</strong> Play/Pause</li>
+                <li><strong>M key:</strong> Mute/Unmute</li>
+                <li><strong>↑/↓ arrows:</strong> Volume up/down</li>
+                <li><strong>←/→ arrows:</strong> Seek backward/forward</li>
+                <li><strong>F key:</strong> Fullscreen toggle</li>
+            </ul>
+            <p><strong>💡 Tip:</strong> Right-click on video for more options</p>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 ElevenLabs Professional Tutorial</div>
+            <video controls preload="auto" id="mainVideo">
+                <source src="./output/CCube_Tutorial_ElevenLabs_Professional.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video. <a href="./output/CCube_Tutorial_ElevenLabs_Professional.mp4">Download the video</a> instead.</p>
+            </video>
+            <div class="video-info">
+                📁 File: CCube_Tutorial_ElevenLabs_Professional.mp4<br>
+                🔊 Audio: AAC, 44.1kHz, Mono<br>
+                🎬 Video: H.264, 1280x720, 15fps
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Complete Tutorial</div>
+            <video controls preload="metadata">
+                <source src="./output/CCube_Tutorial_Complete.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: CCube_Tutorial_Complete.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Enhanced Robotic Tutorial</div>
+            <video controls preload="metadata">
+                <source src="./output/CCube_Tutorial_Enhanced_Robotic.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: CCube_Tutorial_Enhanced_Robotic.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Creating Wallet Tutorial (With Audio)</div>
+            <video controls preload="metadata">
+                <source src="./output/Creating_Wallet_Tutorial_WithAudio.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: Creating_Wallet_Tutorial_WithAudio.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Networks Tutorial (With Audio)</div>
+            <video controls preload="metadata">
+                <source src="./output/Networks_Tutorial_WithAudio.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: Networks_Tutorial_WithAudio.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Security Tutorial (With Audio)</div>
+            <video controls preload="metadata">
+                <source src="./output/Security_Tutorial_WithAudio.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: Security_Tutorial_WithAudio.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Transactions Tutorial (With Audio)</div>
+            <video controls preload="metadata">
+                <source src="./output/Transactions_Tutorial_WithAudio.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: Transactions_Tutorial_WithAudio.mp4</div>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-title">🎯 Welcome Tutorial (With Audio)</div>
+            <video controls preload="metadata">
+                <source src="./output/Welcome_Tutorial_WithAudio.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video.</p>
+            </video>
+            <div class="video-info">📁 File: Welcome_Tutorial_WithAudio.mp4</div>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced video controls
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                // Ensure audio is enabled
+                video.volume = 0.8;
+                video.muted = false;
+                
+                // Add keyboard controls
+                video.addEventListener('keydown', function(e) {
+                    switch(e.code) {
+                        case 'Space':
+                            e.preventDefault();
+                            if (video.paused) {
+                                video.play();
+                            } else {
+                                video.pause();
+                            }
+                            break;
+                        case 'KeyM':
+                            video.muted = !video.muted;
+                            break;
+                        case 'ArrowUp':
+                            e.preventDefault();
+                            video.volume = Math.min(1, video.volume + 0.1);
+                            break;
+                        case 'ArrowDown':
+                            e.preventDefault();
+                            video.volume = Math.max(0, video.volume - 0.1);
+                            break;
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            video.currentTime = Math.max(0, video.currentTime - 10);
+                            break;
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                            break;
+                        case 'KeyF':
+                            if (document.fullscreenElement) {
+                                document.exitFullscreen();
+                            } else {
+                                video.requestFullscreen();
+                            }
+                            break;
+                    }
+                });
+                
+                // Auto-focus on click for keyboard controls
+                video.addEventListener('click', function() {
+                    video.focus();
+                });
+                
+                // Log when video starts playing to confirm audio
+                video.addEventListener('play', function() {
+                    console.log(`Playing: ${video.src}`);
+                    console.log(`Volume: ${video.volume}, Muted: ${video.muted}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,9 +3,11 @@
  * Utility for persistent storage of token data in the Cold Wallet app
  */
 
+import EnvironmentDetection from './EnvironmentDetection';
+
 // Detect if we're in an Electron environment
 const isElectron = () => {
-  return window && window.electron;
+  return EnvironmentDetection.isElectron();
 };
 
 class TokenStorage {
