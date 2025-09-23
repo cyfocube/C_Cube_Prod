@@ -4,7 +4,7 @@ import Footer from '../components/Footer_New';
 
 const FAQContainer = styled.div`
   min-height: 100vh;
-  background: #0a0a0a;
+  background: transparent;
   padding: 80px 20px 40px;
   color: #e0e0e0;
 `;

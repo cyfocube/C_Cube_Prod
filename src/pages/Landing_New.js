@@ -5,7 +5,7 @@ import CyFoCubeLogo from '../components/CyFoCubeLogo';
 
 const LandingContainer = styled.div`
   min-height: 100vh;
-  background: #0a0a0a;
+  background: transparent;
   color: #e0e0e0;
   overflow-x: hidden;
 `;
@@ -15,7 +15,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  background: rgba(26, 26, 46, 0.7);
   position: relative;
   overflow: hidden;
   
@@ -32,51 +32,84 @@ const HeroSection = styled.section`
 `;
 
 const HeroContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding-left: 40px;
+  padding-right: 20px;
+  text-align: left;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+    padding-left: 20px;
+  }
+`;
+
+const TextContainer = styled.div`
+  flex: none;
+  max-width: 70%;
+  padding: 0;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+  }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 24px;
   background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.1;
+  white-space: nowrap;
+  overflow: visible;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 1.2rem;
   }
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 40px;
   opacity: 0.8;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
   line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const HeroStats = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin-top: 80px;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  
+  @media (max-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    gap: 15px;
+  }
 `;
 
 const StatCard = styled.div`
   text-align: center;
-  padding: 20px;
+  padding: 3px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -89,14 +122,16 @@ const StatCard = styled.div`
 `;
 
 const StatNumber = styled.div`
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #667eea;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
+  text-align: center;
+  white-space: nowrap;
 `;
 
 const StatLabel = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -303,26 +338,25 @@ const Landing = ({ onAppSelect }) => {
     <LandingContainer className="website-page">
       <HeroSection>
         <HeroContent>
-          <HeroTitle>Global Security,<br />Limitless Access.</HeroTitle>
-          <HeroSubtitle>
-            The complete cybersecurity platform for the digital age. 
-            Secure your crypto, protect your data, and take control of your digital future.
-          </HeroSubtitle>
-          
-          <HeroStats>
-            <StatCard>
-              <StatNumber>100%</StatNumber>
-              <StatLabel>Secure</StatLabel>
-            </StatCard>
-            <StatCard>
-              <StatNumber>24/7</StatNumber>
-              <StatLabel>Protection</StatLabel>
-            </StatCard>
-            <StatCard>
-              <StatNumber>∞</StatNumber>
-              <StatLabel>Possibilities</StatLabel>
-            </StatCard>
-          </HeroStats>
+          <TextContainer>
+            <HeroTitle>Learn and Practice Blockchain Security</HeroTitle>
+            <HeroSubtitle>
+              Master blockchain technology through hands-on learning and practical tools. 
+              Build your expertise while practicing real-world crypto security techniques.
+            </HeroSubtitle>
+            
+            <HeroStats>
+              <StatCard>
+                <StatNumber>100% Hands-On</StatNumber>
+              </StatCard>
+              <StatCard>
+                <StatNumber>24/7 Learning</StatNumber>
+              </StatCard>
+              <StatCard>
+                <StatNumber>∞ Knowledge</StatNumber>
+              </StatCard>
+            </HeroStats>
+          </TextContainer>
         </HeroContent>
       </HeroSection>
 
