@@ -223,6 +223,12 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
             Learn
           </NavItem>
           <NavItem
+            className={currentPage === 'about' ? 'active' : ''}
+            onClick={() => handleNavClick('about')}
+          >
+            About Us
+          </NavItem>
+          <NavItem
             className={currentPage === 'faq' ? 'active' : ''}
             onClick={() => handleNavClick('faq')}
           >

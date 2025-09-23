@@ -17,6 +17,7 @@ import Resources from './pages/Resources';
 import Landing from './pages/Landing_New';
 import Content from './pages/Content';
 import Learn from './pages/Learn';
+import AboutUs from './pages/AboutUs';
 import FAQ from './pages/FAQ_Fixed';
 import ComingSoon from './pages/ComingSoon';
 import SecurityPrompt from './components/SecurityPrompt';
@@ -109,6 +110,8 @@ function App() {
         return <Landing onAppSelect={handlePageNavigation} />;
       case 'content':
         return <Learn />;
+      case 'about':
+        return <AboutUs onNavigate={handlePageNavigation} />;
       case 'faq':
         return <FAQ />;
       case 'coming-soon':
