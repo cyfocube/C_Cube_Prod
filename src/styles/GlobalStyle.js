@@ -21,8 +21,10 @@ export const theme = {
     overlay: 'rgba(0, 255, 65, 0.05)', // Very subtle green overlay
   },
   fonts: {
-    main: "'Share Tech Mono', 'Courier New', monospace",
-    code: "'Share Tech Mono', 'Courier New', monospace",
+    main: "'Share Tech Mono', 'Courier New', monospace", // Keep original for C-Cube wallet
+    modern: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif",
+    heading: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
+    code: "'Share Tech Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace",
   },
   breakpoints: {
     mobile: '576px',
@@ -33,8 +35,6 @@ export const theme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -43,11 +43,56 @@ export const GlobalStyle = createGlobalStyle`
 
   html, body {
     height: 100%;
-    font-family: ${({ theme }) => theme.fonts.main};
+    font-family: ${({ theme }) => theme.fonts.main}; /* This keeps Share Tech Mono for C-Cube wallet */
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     position: relative;
     overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Website-specific modern typography - only for website pages */
+  .website-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    button {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+    }
+  }
+
+  /* Keep original C-Cube wallet styling */
+  code, pre {
+    font-family: ${({ theme }) => theme.fonts.code};
+  }
   }
 
   body::before {

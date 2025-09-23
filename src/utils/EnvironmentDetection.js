@@ -45,6 +45,19 @@ export const isSecureContext = () => {
   return window.isSecureContext || isLocalhost();
 };
 
+// Main environment info function
+export const getEnvironmentInfo = () => {
+  return {
+    isElectron: isElectron(),
+    isWeb: isWeb(),
+    isMobile: isMobile(),
+    isLocalhost: isLocalhost(),
+    platform: getPlatform(),
+    storageType: getStorageType(),
+    isSecureContext: isSecureContext()
+  };
+};
+
 export default {
   isElectron,
   isWeb,
@@ -53,5 +66,6 @@ export default {
   getPlatform,
   getStorageType,
   showWebStorageWarning,
-  isSecureContext
+  isSecureContext,
+  getEnvironmentInfo
 };
