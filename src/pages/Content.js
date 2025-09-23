@@ -303,7 +303,7 @@ const Content = () => {
               </ul>
 
               <HighlightBox>
-                <strong>Remember:</strong> The CyFoCube ecosystem provides safe learning environments 
+                <strong>Remember:</strong> The C-cube ecosystem provides safe learning environments 
                 where you can practice these concepts without risking real funds. Always use educational 
                 tools to understand these principles before managing real cryptocurrency.
               </HighlightBox>
@@ -351,7 +351,7 @@ const Content = () => {
 
               <HighlightBox>
                 <strong>Educational First Approach:</strong> Always start with educational tools 
-                and simulations before using real cryptocurrency. The CyFoCube ecosystem is 
+                and simulations before using real cryptocurrency. The C-cube ecosystem is 
                 designed to provide safe learning environments for all experience levels.
               </HighlightBox>
 

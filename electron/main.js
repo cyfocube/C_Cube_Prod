@@ -26,8 +26,9 @@ function createWindow() {
   });
 
   // Load the app
+  const port = process.env.PORT || 9000;
   const startUrl = isDev
-    ? 'http://localhost:3000'
+    ? `http://localhost:${port}`
     : `file://${path.join(__dirname, '../build/index.html')}`;
 
   mainWindow.loadURL(startUrl);

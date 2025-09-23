@@ -6,28 +6,17 @@ import Layout from './components/Layout';
 import { AppProvider } from './context/AppContext';
 import EnvironmentDetection from './utils/EnvironmentDetection';
 import WebWarningBanner from './components/WebWarningBanner';
-import Header from './components/Header_New';
 
-// Import pages
+// Import wallet pages only
 import WelcomeScreen from './pages/WelcomeScreen';
 import SetupWallet from './pages/SetupWallet';
 import ColdWallet from './pages/ColdWallet';
 import Broadcast from './pages/Broadcast';
 import Resources from './pages/Resources';
-import Landing from './pages/Landing_New';
-import Content from './pages/Content';
-import Learn from './pages/Learn';
-import AboutUs from './pages/AboutUs';
-import Community from './pages/Community';
-import FAQ from './pages/FAQ_Fixed';
-import ComingSoon from './pages/ComingSoon';
 import SecurityPrompt from './components/SecurityPrompt';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('landing'); // Start with landing page
+function AppWallet() {
   const [isWebEnvironment, setIsWebEnvironment] = useState(false);
-  
-  // C-Cube wallet state
   const [isSetup, setIsSetup] = useState(false);
   const [isSecurityPromptAcknowledged, setIsSecurityPromptAcknowledged] = useState(false);
   const [hasInitialChoice, setHasInitialChoice] = useState(false);
@@ -36,7 +25,7 @@ function App() {
     const envInfo = EnvironmentDetection.getEnvironmentInfo();
     setIsWebEnvironment(envInfo.isWeb);
     
-    // Check if the user has already set up the wallet (only for C-Cube app)
+    // Check if the user has already set up the wallet
     const hasSetupWallet = localStorage.getItem('walletSetup');
     if (hasSetupWallet === 'true') {
       setIsSetup(true);
@@ -49,27 +38,22 @@ function App() {
     }
     
     // Log environment info for debugging
-    console.log('Environment:', envInfo);
+    console.log('Wallet App Environment:', envInfo);
   }, []);
 
-  const handlePageNavigation = (page) => {
-    setCurrentPage(page);
-    // Reset security prompt for C-Cube if navigating away from it
-    if (page !== 'c-cube') {
-      setIsSecurityPromptAcknowledged(false);
-    }
-  };
-
-  // Render C-Cube wallet app with its original logic
-  const renderCCubeApp = () => {
-    // Handle initial security prompt for C-Cube
-    if (!isSecurityPromptAcknowledged) {
-      return (
-        <SecurityPrompt onAcknowledge={() => setIsSecurityPromptAcknowledged(true)} />
-      );
-    }
-
+  // Handle initial security prompt for C-Cube
+  if (!isSecurityPromptAcknowledged) {
     return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <SecurityPrompt onAcknowledge={() => setIsSecurityPromptAcknowledged(true)} />
+      </ThemeProvider>
+    );
+  }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <AppProvider>
         {isWebEnvironment && <WebWarningBanner />}
         <Router>
@@ -101,49 +85,8 @@ function App() {
           </Layout>
         </Router>
       </AppProvider>
-    );
-  };
-
-  // Render website structure for main pages
-  const renderWebsitePages = () => {
-    switch (currentPage) {
-      case 'landing':
-        return <Landing onAppSelect={handlePageNavigation} />;
-      case 'content':
-        return <Learn />;
-      case 'about':
-        return <AboutUs onNavigate={handlePageNavigation} />;
-      case 'community':
-        return <Community onNavigate={handlePageNavigation} />;
-      case 'faq':
-        return <FAQ />;
-      case 'coming-soon':
-        return <ComingSoon onNavigate={handlePageNavigation} />;
-      case 'c-cube':
-        return renderCCubeApp();
-      default:
-        return <Landing onAppSelect={handlePageNavigation} />;
-    }
-  };
-
-  // For C-Cube app, don't show the main header
-  if (currentPage === 'c-cube') {
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {renderWebsitePages()}
-      </ThemeProvider>
-    );
-  }
-
-  // For all other pages, show the website structure with header
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header currentPage={currentPage} onNavigate={handlePageNavigation} />
-      {renderWebsitePages()}
     </ThemeProvider>
   );
 }
 
-export default App;
+export default AppWallet;

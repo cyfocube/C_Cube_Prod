@@ -160,7 +160,7 @@ const ComingSoon = ({ onNavigate }) => {
         <Title>Coming Soon</Title>
         <Description>
           This exciting new feature is currently under development. 
-          Stay tuned for updates as we continue to expand the CyFoCube ecosystem.
+          Stay tuned for updates as we continue to expand the C-cube ecosystem.
         </Description>
         <FeaturesList>
           <FeatureItem>🔐 Advanced encryption capabilities</FeatureItem>

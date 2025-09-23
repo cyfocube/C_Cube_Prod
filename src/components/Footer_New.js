@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CyFoCubeLogo from './CyFoCubeLogo';
+import CCubeLogo from './CyFoCubeLogo';
 
 const FooterContainer = styled.footer`
   background: #0a0a0a;
@@ -156,9 +156,9 @@ const Footer = () => {
         <FooterTop>
           <FooterBrand>
             <div className="logo-container">
-              <CyFoCubeLogo size="normal" />
+              <CCubeLogo size="normal" />
             </div>
-            <h3>CyFoCube</h3>
+            <h3>C-cube</h3>
             <p>
               The complete cybersecurity platform for the digital age. 
               Secure your crypto, protect your data, and take control of your digital future.
@@ -217,7 +217,7 @@ const Footer = () => {
 
         <FooterBottom>
           <Copyright>
-            © 2025 CyFoCube. All rights reserved.
+            © 2025 C-cube. All rights reserved.
           </Copyright>
           <FooterLinks>
             <a href="#">Privacy Policy</a>

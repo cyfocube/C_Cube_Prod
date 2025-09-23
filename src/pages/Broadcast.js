@@ -1,8 +1,53 @@
 import React, { useState, useContext } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import AppContext from '../context/AppContext';
 import { ethers } from 'ethers';
-import { PageBackground, PageContent } from '../components/shared/PageBackground';
+
+// Black background global style for Broadcast page
+const BroadcastGlobalStyle = createGlobalStyle`
+  html, body {
+    background: #000000 !important;
+    background-image: none !important;
+    background-attachment: initial !important;
+    background-size: initial !important;
+    background-position: initial !important;
+    background-repeat: initial !important;
+  }
+  
+  html::before,
+  body::before,
+  *::before {
+    display: none !important;
+  }
+  
+  #root {
+    background: #000000 !important;
+    background-image: none !important;
+  }
+`;
+
+// Black PageBackground replacement
+const BlackPageBackground = styled.div`
+  min-height: 100vh;
+  background: #000000 !important;
+  background-image: none !important;
+  position: relative;
+  overflow-x: hidden;
+  color: #e0e0e0;
+  
+  &::before {
+    display: none !important;
+  }
+`;
+
+// Black PageContent replacement  
+const BlackPageContent = styled.div`
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px 40px;
+  background: #000000 !important;
+  background-image: none !important;
+`;
 
 const BroadcastContainer = styled.div`
   max-width: 800px;
@@ -20,11 +65,15 @@ const Card = styled.div`
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1.5rem;
+  font-family: ${({ theme }) => theme.fonts.code};
+  letter-spacing: 1px;
 `;
 
 const Subtitle = styled.h3`
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.text};
+  font-family: ${({ theme }) => theme.fonts.code};
+  letter-spacing: 1px;
 `;
 
 const FormGroup = styled.div`
@@ -36,6 +85,9 @@ const FormGroup = styled.div`
 
 const Label = styled.label`
   font-weight: bold;
+  font-family: ${({ theme }) => theme.fonts.code};
+  color: ${({ theme }) => theme.colors.primary};
+  letter-spacing: 1px;
 `;
 
 const TextArea = styled.textarea`
@@ -221,8 +273,9 @@ const Broadcast = () => {
   };
 
   return (
-    <PageBackground>
-      <PageContent>
+    <BlackPageBackground>
+      <BroadcastGlobalStyle />
+      <BlackPageContent>
         <BroadcastContainer>
       <Card>
         <Title>Broadcast Transaction</Title>
@@ -330,8 +383,8 @@ const Broadcast = () => {
         )}
       </Card>
         </BroadcastContainer>
-      </PageContent>
-    </PageBackground>
+      </BlackPageContent>
+    </BlackPageBackground>
   );
 };
 

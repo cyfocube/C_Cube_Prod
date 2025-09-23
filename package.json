@@ -4,7 +4,7 @@
   "description": "Secure offline cold wallet application for multiple blockchains",
   "main": "electron/main.js",
   "scripts": {
-    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "start": "concurrently \"cross-env BROWSER=none PORT=9000 npm run react-start\" \"wait-on http://localhost:9000 && electron .\"",
     "start-web": "react-scripts start",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",

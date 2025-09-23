@@ -98,7 +98,7 @@ const Footer = () => {
     <FooterContainer className="website-page">
       <FooterContent>
         <FooterSection>
-          <SectionTitle>CyFoCube</SectionTitle>
+          <SectionTitle>C-cube</SectionTitle>
           <SectionText>
             Your trusted partner for cybersecurity and cryptocurrency management. 
             Building the future of digital asset security.
@@ -141,7 +141,7 @@ const Footer = () => {
 
       <FooterBottom>
         <p>
-          © 2024 CyFoCube. All rights reserved. Educational platform for blockchain learning.
+          © 2024 C-cube. All rights reserved. Educational platform for blockchain learning.
         </p>
         <p>
           <a href="#" style={{color: '#bdc3c7', marginRight: '20px'}}>Privacy Policy</a>

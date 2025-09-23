@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import CyFoCubeLogo from './CyFoCubeLogo';
+import CCubeLogo from './CyFoCubeLogo';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -33,7 +33,7 @@ const Logo = styled.div`
 `;
 
 const LogoText = styled.span`
-  /* Removed - now handled by CyFoCubeLogo component */
+  /* Removed - now handled by CCubeLogo component */
 `;
 
 const Nav = styled.nav`
@@ -94,7 +94,7 @@ const AppsDropdown = styled.div`
 const AppsDropdownMenu = styled.div`
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,6 +139,12 @@ const DropdownItem = styled.button`
 
   &.coming-soon {
     opacity: 0.6;
+    cursor: not-allowed;
+    
+    &:hover {
+      background: none;
+      color: #e0e0e0;
+    }
   }
 `;
 
@@ -163,7 +169,7 @@ const MobileMenuButton = styled.button`
 `;
 
 const LaunchAppButton = styled.button`
-  background: linear-gradient(135deg, #8b7355, #1a1a1a);
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -175,8 +181,8 @@ const LaunchAppButton = styled.button`
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(139, 115, 85, 0.15);
-    background: linear-gradient(135deg, #a68660, #000000);
+    box-shadow: 0 4px 8px rgba(0, 180, 216, 0.25);
+    background: linear-gradient(135deg, #0096c7, #005577);
   }
 
   @media (max-width: 768px) {
@@ -206,7 +212,7 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
     <HeaderContainer className="website-page">
       <HeaderContent>
         <Logo>
-          <CyFoCubeLogo onClick={() => handleNavClick('landing')} />
+          <CCubeLogo onClick={() => handleNavClick('landing')} />
         </Logo>
 
         <Nav isOpen={mobileMenuOpen}>
@@ -222,22 +228,10 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
           >
             Learn
           </NavItem>
-          <NavItem
-            className={currentPage === 'about' ? 'active' : ''}
-            onClick={() => handleNavClick('about')}
-          >
-            About Us
-          </NavItem>
-          <NavItem
-            className={currentPage === 'faq' ? 'active' : ''}
-            onClick={() => handleNavClick('faq')}
-          >
-            FAQ
-          </NavItem>
 
           <AppsDropdown>
             <NavItem onClick={() => setShowAppsDropdown(!showAppsDropdown)}>
-              Apps ▼
+              Platform ▼
             </NavItem>
             {showAppsDropdown && (
               <AppsDropdownMenu>
@@ -249,37 +243,56 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
                 </DropdownItem>
                 <DropdownItem 
                   className="coming-soon"
-                  onClick={() => handleNavClick('coming-soon')}
+                  onClick={(e) => e.preventDefault()}
                 >
                   File Encryption Tool
                 </DropdownItem>
                 <DropdownItem 
                   className="coming-soon"
-                  onClick={() => handleNavClick('coming-soon')}
+                  onClick={(e) => e.preventDefault()}
                 >
                   Network Security Scanner
                 </DropdownItem>
                 <DropdownItem 
                   className="coming-soon"
-                  onClick={() => handleNavClick('coming-soon')}
+                  onClick={(e) => e.preventDefault()}
                 >
                   Blockchain Explorer
                 </DropdownItem>
                 <DropdownItem 
                   className="coming-soon"
-                  onClick={() => handleNavClick('coming-soon')}
+                  onClick={(e) => e.preventDefault()}
                 >
                   Digital Identity Manager
                 </DropdownItem>
                 <DropdownItem 
                   className="coming-soon"
-                  onClick={() => handleNavClick('coming-soon')}
+                  onClick={(e) => e.preventDefault()}
                 >
                   Secure Communication Hub
                 </DropdownItem>
               </AppsDropdownMenu>
             )}
           </AppsDropdown>
+
+          <NavItem
+            className={currentPage === 'faq' ? 'active' : ''}
+            onClick={() => handleNavClick('faq')}
+          >
+            FAQ
+          </NavItem>
+          <NavItem
+            className={currentPage === 'community' ? 'active' : ''}
+            onClick={() => handleNavClick('community')}
+          >
+            Community
+          </NavItem>
+          <NavItem
+            className={currentPage === 'about' ? 'active' : ''}
+            onClick={() => handleNavClick('about')}
+          >
+            About Us
+          </NavItem>
 
           <LaunchAppButton onClick={handleLaunchApp}>
             Launch App

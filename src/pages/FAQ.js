@@ -230,9 +230,9 @@ const FAQ = () => {
   const faqData = [
     {
       category: 'general',
-      question: 'What is CyFoCube and what does it offer?',
+      question: 'What is C-cube and what does it offer?',
       answer: `
-        <p>CyFoCube is an educational platform focused on blockchain technology and cryptocurrency education. Our mission is to provide safe, accessible learning environments for people at all experience levels.</p>
+        <p>C-cube is an educational platform focused on blockchain technology and cryptocurrency education. Our mission is to provide safe, accessible learning environments for people at all experience levels.</p>
         <p>We offer:</p>
         <ul>
           <li>Educational wallet applications for learning about cryptocurrency storage</li>
@@ -245,9 +245,9 @@ const FAQ = () => {
     },
     {
       category: 'general',
-      question: 'Is CyFoCube suitable for beginners?',
+      question: 'Is C-cube suitable for beginners?',
       answer: `
-        <p>Absolutely! CyFoCube is designed with beginners in mind. Our educational approach ensures that complex concepts are broken down into digestible, easy-to-understand lessons.</p>
+        <p>Absolutely! C-cube is designed with beginners in mind. Our educational approach ensures that complex concepts are broken down into digestible, easy-to-understand lessons.</p>
         <p>We provide:</p>
         <ul>
           <li>Step-by-step tutorials</li>
@@ -259,9 +259,9 @@ const FAQ = () => {
     },
     {
       category: 'security',
-      question: 'How does CyFoCube ensure the security of educational tools?',
+      question: 'How does C-cube ensure the security of educational tools?',
       answer: `
-        <p>Security is our top priority. CyFoCube educational tools are designed with multiple security layers:</p>
+        <p>Security is our top priority. C-cube educational tools are designed with multiple security layers:</p>
         <ul>
           <li><strong>Educational Focus:</strong> Our tools are designed for learning, not for managing real cryptocurrency</li>
           <li><strong>Isolated Environments:</strong> Educational wallets operate in safe, controlled environments</li>
@@ -283,7 +283,7 @@ const FAQ = () => {
           <li>Long-term secure storage for large amounts</li>
           <li>Full control over your private keys</li>
         </ul>
-        <p>CyFoCube's educational cold wallet helps you understand these concepts safely before working with real cryptocurrency.</p>
+        <p>C-cube's educational cold wallet helps you understand these concepts safely before working with real cryptocurrency.</p>
       `
     },
     {
@@ -309,9 +309,9 @@ const FAQ = () => {
     },
     {
       category: 'technical',
-      question: 'What blockchain networks does CyFoCube support for education?',
+      question: 'What blockchain networks does C-cube support for education?',
       answer: `
-        <p>CyFoCube educational tools support learning about multiple blockchain networks:</p>
+        <p>C-cube educational tools support learning about multiple blockchain networks:</p>
         <ul>
           <li><strong>Ethereum:</strong> Smart contracts, DeFi, and ERC-20 tokens</li>
           <li><strong>Bitcoin:</strong> Digital payments and store of value concepts</li>
@@ -349,14 +349,14 @@ const FAQ = () => {
           <li>Yield farming and liquidity mining</li>
           <li>Synthetic assets and derivatives</li>
         </ul>
-        <p>CyFoCube provides educational content and simulations to help you understand DeFi concepts without the risks associated with real protocols. Always learn and practice in educational environments before engaging with real DeFi applications.</p>
+        <p>C-cube provides educational content and simulations to help you understand DeFi concepts without the risks associated with real protocols. Always learn and practice in educational environments before engaging with real DeFi applications.</p>
       `
     },
     {
       category: 'technical',
-      question: 'Can I use CyFoCube tools on mobile devices?',
+      question: 'Can I use C-cube tools on mobile devices?',
       answer: `
-        <p>Yes! CyFoCube educational tools are designed to work across multiple platforms:</p>
+        <p>Yes! C-cube educational tools are designed to work across multiple platforms:</p>
         <ul>
           <li><strong>Web Browsers:</strong> Access through any modern web browser</li>
           <li><strong>Desktop Applications:</strong> Native apps for Windows, macOS, and Linux</li>
@@ -368,9 +368,9 @@ const FAQ = () => {
     },
     {
       category: 'general',
-      question: 'Are CyFoCube educational tools free to use?',
+      question: 'Are C-cube educational tools free to use?',
       answer: `
-        <p>Yes! CyFoCube is committed to making blockchain education accessible to everyone. Our core educational tools and content are provided free of charge.</p>
+        <p>Yes! C-cube is committed to making blockchain education accessible to everyone. Our core educational tools and content are provided free of charge.</p>
         <p><strong>What's included for free:</strong></p>
         <ul>
           <li>Educational wallet applications</li>
@@ -395,7 +395,7 @@ const FAQ = () => {
           <li><strong>Fake Apps:</strong> Only download wallet apps from official sources</li>
           <li><strong>Social Engineering:</strong> Be wary of unsolicited contact claiming to help with crypto issues</li>
         </ul>
-        <p>CyFoCube educational tools help you recognize and avoid these common pitfalls in a safe learning environment.</p>
+        <p>C-cube educational tools help you recognize and avoid these common pitfalls in a safe learning environment.</p>
       `
     },
     {
@@ -443,7 +443,7 @@ const FAQ = () => {
         <FAQCard>
           <Header>
             <Title>Frequently Asked Questions</Title>
-            <Subtitle>Find answers to common questions about blockchain education and CyFoCube</Subtitle>
+            <Subtitle>Find answers to common questions about blockchain education and C-cube</Subtitle>
           </Header>
 
           <FAQBody>

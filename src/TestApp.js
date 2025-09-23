@@ -10,7 +10,7 @@ function TestApp() {
       minHeight: '100vh',
       fontSize: '24px'
     }}>
-      <h1>🚀 CyFoCube Website Test</h1>
+      <h1>🚀 C-cube Website Test</h1>
       <p>If you can see this, the React app is working!</p>
       <p>Current time: {new Date().toLocaleString()}</p>
     </div>

@@ -51,12 +51,12 @@ const LogoText = styled.span`
   }
 `;
 
-const CyFoCubeLogo = ({ size = 'normal', onClick, showText = true }) => {
+const CCubeLogo = ({ size = 'normal', onClick, showText = true }) => {
   return (
     <LogoContainer onClick={onClick}>
       <AnimatedLogo 
         src="/logo8.png" 
-        alt="CyFoCube Logo" 
+        alt="C-cube Logo" 
         size={size}
       />
       {showText && <LogoText size={size}>Cube</LogoText>}
@@ -64,4 +64,4 @@ const CyFoCubeLogo = ({ size = 'normal', onClick, showText = true }) => {
   );
 };
 
-export default CyFoCubeLogo;
+export default CCubeLogo;

@@ -9,7 +9,7 @@ function MinimalApp() {
       fontSize: '24px',
       minHeight: '100vh'
     }}>
-      <h1>MINIMAL TEST - CyFoCube</h1>
+      <h1>MINIMAL TEST - C-cube</h1>
       <p>If you see this red page, React is working!</p>
       <p>Time: {new Date().toLocaleString()}</p>
     </div>

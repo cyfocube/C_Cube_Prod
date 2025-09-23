@@ -197,8 +197,12 @@ const FAQ = () => {
   const faqData = [
     {
       category: 'general',
-      question: 'What is CyFoCube and what does it offer?',
-      answer: `CyFoCube is an educational platform focused on blockchain technology and cryptocurrency education. Our mission is to provide safe, accessible learning environments for people at all experience levels. We offer educational wallet applications for learning about cryptocurrency storage, interactive tutorials on blockchain fundamentals, safe testing environments that don't require real cryptocurrency, comprehensive educational content about DeFi, security, and best practices, and tools designed specifically for educational purposes.`
+      question: 'What is C-cube and what does it offer?',
+      answer: `C-cube is an educational platform focused on blockchain technology and cryptocurrency education. Our mission is to provide safe, accessible learning environments for people at all experience levels. We offer educational wallet applications for learning about cryptocurrency storage, interactive tutorials on blockchain fundamentals, safe testing environments that don't require real cryptocurrency, comprehensive educational content about DeFi, security, and best practices, and tools designed specifically for learning purposes.`
+    },
+    {
+      question: 'Is C-cube suitable for beginners?',
+      answer: `Absolutely! C-cube is designed with beginners in mind. Our educational approach ensures that complex concepts are broken down into digestible, easy-to-understand lessons. You can start with basic blockchain concepts and gradually work your way up to more advanced topics like DeFi and smart contracts.`
     },
     {
       category: 'general',
@@ -246,7 +250,7 @@ const FAQ = () => {
       <FAQContainer className="website-page">
         <FAQCard>
           <Title>Frequently Asked Questions</Title>
-          <Subtitle>Find answers to common questions about blockchain education and CyFoCube</Subtitle>
+          <Subtitle>Find answers to common questions about blockchain education and C-cube</Subtitle>
 
           <SearchBar
             type="text"

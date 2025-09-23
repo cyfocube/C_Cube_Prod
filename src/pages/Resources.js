@@ -1,6 +1,51 @@
 import React from 'react';
-import styled from 'styled-components';
-import { PageBackground, PageContent } from '../components/shared/PageBackground';
+import styled, { createGlobalStyle } from 'styled-components';
+
+// Black background global style for Resources page
+const ResourcesGlobalStyle = createGlobalStyle`
+  html, body {
+    background: #000000 !important;
+    background-image: none !important;
+    background-attachment: initial !important;
+    background-size: initial !important;
+    background-position: initial !important;
+    background-repeat: initial !important;
+  }
+  
+  html::before,
+  body::before,
+  *::before {
+    display: none !important;
+  }
+  
+  #root {
+    background: #000000 !important;
+    background-image: none !important;
+  }
+`;
+
+// Black PageBackground replacement
+const BlackPageBackground = styled.div`
+  min-height: 100vh;
+  background: #000000 !important;
+  background-image: none !important;
+  position: relative;
+  overflow-x: hidden;
+  color: #e0e0e0;
+  
+  &::before {
+    display: none !important;
+  }
+`;
+
+// Black PageContent replacement  
+const BlackPageContent = styled.div`
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px 40px;
+  background: #000000 !important;
+  background-image: none !important;
+`;
 
 const ResourcesContainer = styled.div`
   max-width: 900px;
@@ -18,6 +63,8 @@ const Card = styled.div`
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1.5rem;
+  font-family: ${({ theme }) => theme.fonts.code};
+  letter-spacing: 1px;
 `;
 
 const Subtitle = styled.h3`
@@ -28,13 +75,9 @@ const Subtitle = styled.h3`
   padding-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   line-height: 1.1;
-  white-space: nowrap;
-  overflow: visible;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: ${({ theme }) => theme.fonts.code};
+  letter-spacing: 1px;
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -42,23 +85,21 @@ const Subtitle = styled.h3`
 `;
 
 const MainTitle = styled.h1`
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  padding-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1.1;
-  white-space: nowrap;
-  overflow: visible;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  &&&&& {
+    color: ${({ theme }) => theme.colors.text} !important;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+    padding-bottom: 0.5rem;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    line-height: 1.1;
+    font-family: ${({ theme }) => theme.fonts.code} !important;
+    letter-spacing: 1px;
 
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
+    @media (max-width: 768px) {
+      font-size: 2.4rem !important;
+    }
   }
 `;
 
@@ -115,8 +156,9 @@ const Resources = () => {
   const [activeTab, setActiveTab] = React.useState('guide');
 
   return (
-    <PageBackground>
-      <PageContent>
+    <BlackPageBackground>
+      <ResourcesGlobalStyle />
+      <BlackPageContent>
         <ResourcesContainer>
       <Card>
         <Title>Resources</Title>
@@ -309,8 +351,8 @@ const Resources = () => {
         )}
       </Card>
         </ResourcesContainer>
-      </PageContent>
-    </PageBackground>
+      </BlackPageContent>
+    </BlackPageBackground>
   );
 };
 

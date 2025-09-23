@@ -146,7 +146,7 @@ const Landing = ({ onAppSelect }) => {
   return (
     <LandingContainer className="website-page">
       <HeroSection>
-        <HeroTitle>Welcome to CyFoCube</HeroTitle>
+        <HeroTitle>Welcome to C-cube</HeroTitle>
         <HeroSubtitle>
           Your Complete Cybersecurity & Finance Platform
         </HeroSubtitle>

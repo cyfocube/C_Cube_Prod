@@ -110,22 +110,28 @@ const SectionTitle = styled.h2`
 `;
 
 const MissionGrid = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 50px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 `;
 
 const MissionCard = styled.div`
-  padding: 40px;
+  padding: 50px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  border-radius: 20px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  min-height: 320px;
 
   &::before {
     content: '';
@@ -133,7 +139,7 @@ const MissionCard = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background: linear-gradient(90deg, #667eea, #764ba2);
   }
 
@@ -145,28 +151,29 @@ const MissionCard = styled.div`
 `;
 
 const MissionIcon = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 24px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
 `;
 
 const MissionTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: #ffffff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const MissionDescription = styled.p`
   opacity: 0.8;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 1.1rem;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
@@ -272,21 +279,21 @@ const AboutUs = ({ onNavigate }) => {
             <MissionIcon>🎯</MissionIcon>
             <MissionTitle>Democratize Security</MissionTitle>
             <MissionDescription>
-              We're breaking down barriers to cybersecurity education by providing free, accessible tools and learning resources. Our goal is to empower individuals from all walks of life with the knowledge and tools they need to protect their digital assets and privacy.
+              Breaking down barriers to cybersecurity education by providing free, accessible tools and learning resources for everyone.
             </MissionDescription>
           </MissionCard>
           <MissionCard>
             <MissionIcon>🔧</MissionIcon>
             <MissionTitle>Build Modern Tools</MissionTitle>
             <MissionDescription>
-              Our team of dedicated creators develops innovative security solutions using the latest technologies. From cold wallet management to blockchain security, we create tools that are both powerful and user-friendly, making advanced security accessible to everyone.
+              Developing innovative security solutions using cutting-edge technologies that are both powerful and user-friendly.
             </MissionDescription>
           </MissionCard>
           <MissionCard>
             <MissionIcon>📚</MissionIcon>
             <MissionTitle>Educate & Empower</MissionTitle>
             <MissionDescription>
-              Education is at the heart of everything we do. We provide comprehensive learning materials, interactive tutorials, and hands-on experiences that help people understand cybersecurity concepts and apply them in real-world scenarios.
+              Providing comprehensive learning materials and hands-on experiences to master cybersecurity concepts and real-world applications.
             </MissionDescription>
           </MissionCard>
         </MissionGrid>

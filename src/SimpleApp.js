@@ -47,8 +47,8 @@ function App() {
       case 'home':
         return (
           <Container>
-            <Title>🚀 CyFoCube Platform</Title>
-            <p>Welcome to the CyFoCube educational blockchain platform!</p>
+            <Title>🚀 C-cube Platform</Title>
+            <p>Welcome to the C-cube educational blockchain platform!</p>
             <Button onClick={() => setCurrentPage('about')}>About</Button>
             <Button onClick={() => setCurrentPage('apps')}>Apps</Button>
           </Container>
@@ -56,10 +56,10 @@ function App() {
       case 'about':
         return (
           <Container>
-            <Title>About CyFoCube</Title>
+            <Title>About C-cube</Title>
             <PageContent>
               <h2>Educational Blockchain Platform</h2>
-              <p>CyFoCube provides safe, educational tools for learning about blockchain technology and cryptocurrency.</p>
+              <p>C-cube provides safe, educational tools for learning about blockchain technology and cryptocurrency.</p>
               <Button onClick={() => setCurrentPage('home')}>← Back to Home</Button>
             </PageContent>
           </Container>

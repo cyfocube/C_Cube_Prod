@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, createGlobalStyle } from 'styled-components';
 import AppContext from '../context/AppContext';
 import { ethers } from 'ethers';
 import QRCode from 'qrcode.react';
@@ -7,8 +7,128 @@ import CyberSecurityHeader from '../components/CyberSecurityHeader';
 import TokenBackupRestoreSection from '../components/TokenBackupRestoreSection';
 import networks from '../utils/networks';
 
+const WalletGlobalStyle = createGlobalStyle`
+  html, body {
+    background: #000000 !important;
+    background-image: none !important;
+    background-attachment: initial !important;
+    background-size: initial !important;
+    background-position: initial !important;
+    background-repeat: initial !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior-x: none !important;
+    touch-action: pan-y !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    font-family: "Share Tech Mono", "Courier New", monospace !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    opacity: 0.9 !important;
+  }
+  
+  /* Completely prevent horizontal movement globally */
+  * {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    overscroll-behavior-x: none !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Prevent horizontal scrolling on all elements */
+  *::-webkit-scrollbar:horizontal {
+    display: none !important;
+  }
+  
+  /* Lock page horizontally */
+  html {
+    overflow-x: hidden !important;
+    overscroll-behavior-x: none !important;
+  }
+  
+  body {
+    overflow-x: hidden !important;
+    overscroll-behavior-x: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Allow text selection in inputs but prevent dragging */
+  input, textarea {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    -webkit-user-drag: none !important;
+  }
+  
+  html::before,
+  body::before,
+  *::before {
+    display: none !important;
+  }
+  
+  #root {
+    background: #000000 !important;
+    background-image: none !important;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    overscroll-behavior-x: none !important;
+  }
+`;
+
+const PageWrapper = styled.div`
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  background: #000000 !important;
+  background-image: none !important;
+  background-attachment: initial !important;
+  background-size: initial !important;
+  background-position: initial !important;
+  background-repeat: initial !important;
+  padding: 20px 0;
+  position: relative;
+  z-index: 999;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  /* Prevent horizontal scrolling/swiping but allow vertical */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
+  
+  /* Additional movement prevention */
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  
+  /* Prevent all forms of horizontal movement */
+  pointer-events: auto;
+  
+  * {
+    pointer-events: auto;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    overscroll-behavior-x: none !important;
+  }
+  
+  /* Override any global background styles */
+  &::before,
+  &::after {
+    display: none !important;
+  }
+`;
+
 const ConsoleFrame = styled.div`
   max-width: 1040px;
+  width: 100%;
   margin: 0 auto;
   border: 2px solid ${({ theme }) => theme.colors.primary};
   border-radius: 4px;
@@ -16,6 +136,8 @@ const ConsoleFrame = styled.div`
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 30px rgba(0, 204, 51, 0.25);
+  overflow-x: hidden;
+  box-sizing: border-box;
   
   &::before {
     content: "C-CUBE TERMINAL v1.3.37";
@@ -50,7 +172,14 @@ const ConsoleFrame = styled.div`
 
 const WalletContainer = styled.div`
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 `;
 
 const Card = styled.div`
@@ -62,6 +191,10 @@ const Card = styled.div`
   box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
   position: relative;
   overflow: hidden;
+  
+  /* Prevent horizontal movement while preserving visual effects */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
   
   &::before {
     content: "";
@@ -95,6 +228,9 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1.5rem;
   font-family: ${({ theme }) => theme.fonts.code};
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
   letter-spacing: 1px;
   position: relative;
   display: inline-block;
@@ -116,6 +252,9 @@ const Subtitle = styled.h3`
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: 1rem;
   font-family: ${({ theme }) => theme.fonts.code};
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.8;
   letter-spacing: 1px;
 `;
 
@@ -152,6 +291,9 @@ const WalletAddress = styled.div`
   padding: 1rem;
   border-radius: 2px;
   font-family: ${({ theme }) => theme.fonts.code};
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
   word-break: break-all;
   margin-bottom: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -188,6 +330,16 @@ const WalletAddress = styled.div`
   }
 `;
 
+const HeroText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.code};
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  color: ${({ theme }) => theme.colors.text};
+`;
+
 const WalletControls = styled.div`
   display: flex;
   gap: 1rem;
@@ -210,7 +362,7 @@ const Button = styled.button`
     danger ? theme.colors.dark : secondary ? theme.colors.dark : theme.colors.dark};
   color: ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
   padding: 0.75rem 1.5rem;
-  border-radius: 2px;
+  border-radius: 8px;
   font-family: ${({ theme }) => theme.fonts.code};
   font-weight: bold;
   border: 1px solid ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
@@ -224,14 +376,20 @@ const Button = styled.button`
   text-shadow: 0 0 5px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
   
   &:hover {
-    box-shadow: 0 0 15px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
+    border-radius: 12px;
+    box-shadow: 
+      0 0 25px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary},
+      inset 0 0 20px ${({ theme, danger }) => danger ? 'rgba(255, 7, 58, 0.1)' : 'rgba(0, 204, 51, 0.1)'};
     background-color: ${({ theme, danger }) => 
-      danger ? 'rgba(255, 7, 58, 0.1)' : 'rgba(0, 204, 51, 0.1)'};
+      danger ? 'rgba(255, 7, 58, 0.15)' : 'rgba(0, 204, 51, 0.15)'};
+    transform: translateY(-2px) scale(1.02);
+    text-shadow: 0 0 10px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
   }
   
   &:active {
-    transform: translateY(1px);
-    box-shadow: 0 0 25px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
+    transform: translateY(0px) scale(1.01);
+    box-shadow: 0 0 35px ${({ theme, danger }) => danger ? theme.colors.danger : theme.colors.primary};
+    border-radius: 10px;
   }
   
   &::before {
@@ -264,6 +422,7 @@ const Button = styled.button`
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
+    border-radius: inherit;
   }
   
   &:hover::after {
@@ -281,6 +440,8 @@ const Button = styled.button`
     &:hover {
       box-shadow: none;
       background-color: ${({ theme }) => theme.colors.dark};
+      transform: none;
+      border-radius: 8px;
     }
     &::after {
       display: none;
@@ -1984,18 +2145,21 @@ const ColdWallet = () => {
 
   if (!activeWallet) {
     return (
-      <ConsoleFrame>
-        <WalletContainer>
-          <CyberSecurityHeader 
-            title="C-CUBE" 
-            subtitle="Offline cryptocurrency storage with enhanced security protocols"
-          />
-          <Card>
-            <Title>
-              {selectedNetwork.isMultiChainView 
-                ? 'No Multi-Chain Wallets Available' 
-                : `No ${selectedNetwork.name} Wallet Available`}
-            </Title>
+      <>
+        <WalletGlobalStyle />
+        <PageWrapper>
+          <ConsoleFrame>
+            <WalletContainer>
+              <CyberSecurityHeader 
+                title="C-CUBE" 
+                subtitle="Offline cryptocurrency storage with enhanced security protocols"
+              />
+              <Card>
+                <Title>
+                {selectedNetwork.isMultiChainView 
+                  ? 'No Multi-Chain Wallets Available' 
+                  : `No ${selectedNetwork.name} Wallet Available`}
+              </Title>
             <NetworkBadge color={selectedNetwork.color}>
               {selectedNetwork.isMultiChainView 
                 ? 'Multi-Chain View'
@@ -2189,16 +2353,21 @@ const ColdWallet = () => {
           </Card>
         </WalletContainer>
       </ConsoleFrame>
+      </PageWrapper>
+      </>
     );
   }
 
   return (
-    <ConsoleFrame>
-      <WalletContainer>
-        <CyberSecurityHeader 
-          title="C-CUBE" 
-          subtitle="Offline cryptocurrency storage with enhanced security protocols"
-        />
+    <>
+      <WalletGlobalStyle />
+      <PageWrapper>
+      <ConsoleFrame>
+        <WalletContainer>
+          <CyberSecurityHeader 
+            title="C-CUBE" 
+            subtitle="Offline cryptocurrency storage with enhanced security protocols"
+          />
         
         <Card>
         <Title>Wallet Control Panel</Title>
@@ -2324,7 +2493,7 @@ const ColdWallet = () => {
             active={activeTab === 'export'} 
             onClick={() => setActiveTab('export')}
           >
-            Export Private Key
+            Private Key
           </Tab>
           <Tab 
             active={activeTab === 'recovery'} 
@@ -4098,6 +4267,8 @@ const ColdWallet = () => {
       </Card>
     </WalletContainer>
     </ConsoleFrame>
+    </PageWrapper>
+    </>
   );
 };
 

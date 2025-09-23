@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Footer from '../components/Footer_New';
-import CyFoCubeLogo from '../components/CyFoCubeLogo';
+import CCubeLogo from '../components/CyFoCubeLogo';
 
 const LandingContainer = styled.div`
   min-height: 100vh;
@@ -343,6 +343,8 @@ const Landing = ({ onAppSelect }) => {
             <HeroSubtitle>
               Master blockchain technology through AI-powered hands-on learning, interactive video tutorials, and practical tools. 
               Build your expertise while practicing real-world crypto security techniques with intelligent guidance.
+              <br /><br />
+              Our platform prides itself in providing comprehensive tools for learning that make complex concepts accessible and engaging.
             </HeroSubtitle>
             
             <HeroStats>

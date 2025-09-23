@@ -51,7 +51,7 @@ function BasicApp() {
       case 'home':
         return (
           <div style={styles.content}>
-            <h2>🚀 Welcome to CyFoCube</h2>
+            <h2>🚀 Welcome to C-cube</h2>
             <p>Educational blockchain platform for safe learning.</p>
             <p>Navigate using the buttons above to explore our platform.</p>
             <p><strong>Current Status:</strong> Website is working! Time: {new Date().toLocaleString()}</p>
@@ -99,7 +99,7 @@ function BasicApp() {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h1 style={styles.title}>CyFoCube</h1>
+        <h1 style={styles.title}>C-cube</h1>
         <nav style={styles.nav}>
           <button 
             style={{...styles.button, background: page === 'home' ? '#667eea' : 'white', color: page === 'home' ? 'white' : '#667eea'}}
