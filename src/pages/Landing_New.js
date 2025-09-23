@@ -361,32 +361,32 @@ const Landing = ({ onAppSelect }) => {
       </HeroSection>
 
       <FeaturesSection>
-        <SectionTitle>The CyFoCube Advantage</SectionTitle>
+        <SectionTitle>Why Choose Our Learn Platform</SectionTitle>
         <FeaturesGrid>
           <FeatureCard>
             <FeatureIcon>🔐</FeatureIcon>
-            <FeatureTitle>Military-Grade Security</FeatureTitle>
+            <FeatureTitle>Academy-Grade Security</FeatureTitle>
             <FeatureDescription>
-              Advanced encryption and air-gapped storage ensure your digital assets 
-              remain completely secure from online threats.
+              Advanced encryption and secure learning environments ensure your educational progress 
+              remains completely protected from data breaches.
             </FeatureDescription>
           </FeatureCard>
           
           <FeatureCard>
             <FeatureIcon>⚡</FeatureIcon>
-            <FeatureTitle>Lightning Fast</FeatureTitle>
+            <FeatureTitle>Quick Learning</FeatureTitle>
             <FeatureDescription>
-              Optimized for performance with instant transactions and 
-              real-time security monitoring across all platforms.
+              Optimized tutorials with instant feedback and 
+              real-time progress tracking across all learning modules.
             </FeatureDescription>
           </FeatureCard>
           
           <FeatureCard>
             <FeatureIcon>🛡️</FeatureIcon>
-            <FeatureTitle>Complete Privacy</FeatureTitle>
+            <FeatureTitle>Safe Learning Environment</FeatureTitle>
             <FeatureDescription>
-              Zero-knowledge architecture ensures your data stays private. 
-              We can't see it, and neither can anyone else.
+              Practice with confidence in our risk-free educational environment. 
+              Learn without the worry of losing real funds or making costly mistakes.
             </FeatureDescription>
           </FeatureCard>
         </FeaturesGrid>
@@ -432,14 +432,6 @@ const Landing = ({ onAppSelect }) => {
           </AppCard>
         </AppsGrid>
       </AppsSection>
-
-      <CTASection>
-        <SectionTitle>Ready to Get Started?</SectionTitle>
-        <HeroSubtitle>
-          Join thousands of users who trust CyFoCube with their digital security.
-        </HeroSubtitle>
-        <CTAButton onClick={handleLaunchApp}>Launch C-Cube Wallet</CTAButton>
-      </CTASection>
 
       <Footer />
     </LandingContainer>

@@ -180,7 +180,7 @@ const Footer = () => {
           </FooterBrand>
 
           <FooterSection>
-            <h4>Products</h4>
+            <h4>Platform</h4>
             <ul>
               <li><a href="#">C-Cube Wallet</a></li>
               <li><a href="#">File Encryption Tool</a></li>

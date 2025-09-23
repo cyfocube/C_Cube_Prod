@@ -93,53 +93,6 @@ const HeroSubtitle = styled.p`
   }
 `;
 
-const HeroStats = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 80px;
-  max-width: 800px;
-  
-  @media (max-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    gap: 15px;
-  }
-`;
-
-const StatCard = styled.div`
-  text-align: center;
-  padding: 3px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-`;
-
-const StatNumber = styled.div`
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #667eea;
-  margin-bottom: 0px;
-  text-align: center;
-  white-space: nowrap;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-`;
-
-const StatLabel = styled.div`
-  font-size: 0.8rem;
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-`;
-
 const MissionSection = styled.section`
   padding: 120px 20px;
   background: #0a0a0a;
@@ -304,24 +257,10 @@ const AboutUs = ({ onNavigate }) => {
       <HeroSection>
         <HeroContent>
           <TextContainer>
-            <HeroTitle>About C-Cube Security</HeroTitle>
+            <HeroTitle>C-Cube Security</HeroTitle>
             <HeroSubtitle>
-              C-Cube is an open-source security platform that combines cutting-edge technology with educational resources to democratize cybersecurity knowledge. We believe that everyone, regardless of their background or experience level, deserves access to powerful security tools and the knowledge to use them effectively.
+              C-Cube is an open-source security platform that combines cutting-edge technology with educational resources to democratize blockchain security knowledge. We believe that everyone, regardless of their background or experience level, deserves access to powerful security tools and the knowledge to use them effectively.
             </HeroSubtitle>
-            <HeroStats>
-              <StatCard>
-                <StatNumber>100%</StatNumber>
-                <StatLabel>Open Source</StatLabel>
-              </StatCard>
-              <StatCard>
-                <StatNumber>Free</StatNumber>
-                <StatLabel>Education</StatLabel>
-              </StatCard>
-              <StatCard>
-                <StatNumber>24/7</StatNumber>
-                <StatLabel>Community</StatLabel>
-              </StatCard>
-            </HeroStats>
           </TextContainer>
         </HeroContent>
       </HeroSection>

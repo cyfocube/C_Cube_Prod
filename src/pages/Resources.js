@@ -26,6 +26,40 @@ const Subtitle = styled.h3`
   margin-top: 2rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: visible;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const MainTitle = styled.h1`
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: visible;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const List = styled.ul`
@@ -240,8 +274,8 @@ const Resources = () => {
         
         {activeTab === 'about' && (
           <Section>
-            <Subtitle>About C-Cube</Subtitle>
-            <p>C-Cube is an open-source educational wallet application designed to help users learn about cryptocurrency storage safely. Built with React and available as both a desktop application (Electron) and web application, it works across Windows, macOS, Linux, and all modern web browsers.</p>
+            <MainTitle>C-Cube Security</MainTitle>
+            <p>C-Cube Security is an open-source educational wallet application designed to help users learn about cryptocurrency storage safely. Built with React and available as both a desktop application (Electron) and web application, it works across Windows, macOS, Linux, and all modern web browsers.</p>
             
             <Subtitle>Our Philosophy</Subtitle>
             <p>We believe that education should be the foundation of cryptocurrency security. By creating a tutorial wallet solution that demonstrates cold wallet functionality in a safe learning environment, we aim to teach users about security best practices without risking real funds.</p>
@@ -270,7 +304,7 @@ const Resources = () => {
             </Callout>
             
             <Subtitle>Version</Subtitle>
-            <p>C-Cube v1.0.0</p>
+            <p>C-Cube Security v1.0.0</p>
           </Section>
         )}
       </Card>
