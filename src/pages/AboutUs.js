@@ -268,6 +268,10 @@ const AboutUs = ({ onNavigate }) => {
             <HeroSubtitle>
               C-Cube is an open-source security platform that combines cutting-edge technology with educational resources to democratize blockchain security knowledge. We believe that everyone, regardless of their background or experience level, deserves access to powerful security tools and the knowledge to use them effectively.
             </HeroSubtitle>
+            <HeroTitle>Disclaimer</HeroTitle>
+            <HeroSubtitle>
+              The resources in this platform, including our tools, are for educational purposes only. Do not send real assets to wallets created on this platform. While our platform can interface with real-world blockchain networks, we strongly encourage everyone to use this platform strictly for educational and learning purposes.
+            </HeroSubtitle>
           </TextContainer>
         </HeroContent>
       </HeroSection>
