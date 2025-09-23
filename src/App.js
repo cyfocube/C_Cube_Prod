@@ -16,6 +16,7 @@ import Broadcast from './pages/Broadcast';
 import Resources from './pages/Resources';
 import Landing from './pages/Landing_New';
 import Content from './pages/Content';
+import Learn from './pages/Learn';
 import FAQ from './pages/FAQ_Fixed';
 import ComingSoon from './pages/ComingSoon';
 import SecurityPrompt from './components/SecurityPrompt';
@@ -107,7 +108,7 @@ function App() {
       case 'landing':
         return <Landing onAppSelect={handlePageNavigation} />;
       case 'content':
-        return <Content />;
+        return <Learn />;
       case 'faq':
         return <FAQ />;
       case 'coming-soon':
