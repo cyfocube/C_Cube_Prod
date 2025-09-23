@@ -6,6 +6,7 @@ const LearnContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   @media (max-width: 768px) {
     padding: 0 16px;
@@ -26,42 +27,44 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #4ade80, #06b6d4);
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
   letter-spacing: -0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 16px;
   }
   
   @media (max-width: 480px) {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 12px;
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
   font-weight: 400;
   line-height: 1.6;
   color: #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 500px;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 0.95rem;
     max-width: 100%;
     padding: 0 10px;
   }
@@ -94,6 +97,7 @@ const DropdownButton = styled.button`
   width: 300px;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   &:hover {
     background: rgba(255, 255, 255, 0.15);
@@ -191,6 +195,7 @@ const SearchInput = styled.input`
   max-width: 400px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   &:focus {
     outline: none;
@@ -201,6 +206,7 @@ const SearchInput = styled.input`
   
   &::placeholder {
     color: rgba(224, 224, 224, 0.5);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   }
 `;
 
@@ -209,11 +215,24 @@ const ContentSection = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2rem;
-  color: #4ade80;
-  margin-bottom: 30px;
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
-  font-weight: 600;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
 `;
 
 const MaterialsGrid = styled.div`
@@ -292,11 +311,12 @@ const ReadTime = styled.span`
 `;
 
 const MaterialTitle = styled.h3`
-  font-size: 1.3rem;
-  color: #e0e0e0;
+  font-size: 1.25rem;
+  color: #ffffff;
   margin-bottom: 12px;
   font-weight: 600;
   flex: 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const MaterialPreview = styled.p`
@@ -304,6 +324,7 @@ const MaterialPreview = styled.p`
   line-height: 1.6;
   margin-bottom: 16px;
   white-space: pre-line;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const ReadMoreButton = styled.button`
@@ -412,17 +433,19 @@ const AITutorSection = styled.div`
 `;
 
 const AITutorTitle = styled.h3`
-  font-size: 1.8rem;
-  color: #4ade80;
+  font-size: 1.5rem;
+  color: #ffffff;
   margin-bottom: 16px;
   font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const AITutorDescription = styled.p`
-  color: rgba(224, 224, 224, 0.9);
+  color: rgba(224, 224, 224, 0.8);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 32px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const AIFeatures = styled.div`
@@ -457,16 +480,18 @@ const FeatureIcon = styled.div`
 `;
 
 const FeatureTitle = styled.h4`
-  color: #e0e0e0;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 4px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const FeatureDescription = styled.p`
-  color: rgba(224, 224, 224, 0.7);
+  color: rgba(224, 224, 224, 0.8);
   font-size: 0.9rem;
   line-height: 1.4;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const ButtonGroup = styled.div`
