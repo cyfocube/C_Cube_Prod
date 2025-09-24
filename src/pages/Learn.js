@@ -339,11 +339,59 @@ const ReadMoreButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
   
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
   }
+`;
+
+const PDFDownloadButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 36px;
+  box-sizing: border-box;
+  line-height: 1;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    color: white;
+    text-decoration: none;
+  }
+  
+  &:before {
+    content: "📄";
+    font-size: 0.85rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
 `;
 
 const VideoCard = styled(MaterialCard)`
@@ -562,6 +610,16 @@ const Learn = () => {
 
   const sampleMaterials = [
     {
+      id: 0,
+      title: "C-Cube Cold Wallet: Complete User Education Guide",
+      category: "C-Cube Guide",
+      readTime: "45 min read",
+      preview: "Your comprehensive journey to secure cryptocurrency management with C-Cube. Master cold storage, multi-chain support, security features, and advanced wallet management through this complete tutorial guide.",
+      fullContent: "🔒 **Welcome to C-Cube - Your Secure Cold Wallet Companion**\n\nThis comprehensive guide covers everything you need to know about managing cryptocurrency safely with C-Cube Cold Wallet:\n\n**🚀 What You'll Learn:**\n• Setting up your first secure cold wallet\n• Understanding true cold storage technology\n• Managing multiple wallets across different networks\n• Multi-chain support (Ethereum, Polygon, BSC, Arbitrum, Optimism)\n• Advanced security features and best practices\n• Transaction management and token handling\n• Troubleshooting common issues\n\n**📋 Key Topics Covered:**\n\n**Getting Started**\n• First launch and security setup\n• Creating your first wallet with password protection\n• Understanding recovery phrases and backup strategies\n\n**Security Features**\n• Four layers of security protection\n• Cold storage design principles\n• Transaction signing and verification\n• Network security and validation\n\n**Advanced Features**\n• Multi-network wallet management\n• Custom gas fee settings\n• Smart contract interactions\n• DeFi protocol integration\n\n**Best Practices**\n• Recovery phrase protection strategies\n• Transaction security protocols\n• Regular security maintenance\n• Emergency procedures\n\n**💡 Why This Guide Matters:**\nC-Cube represents the future of secure cryptocurrency management. This guide ensures you can confidently navigate the world of digital assets while maintaining the highest security standards.\n\n**📄 [Download Complete PDF Guide](/C-Cube_Learning_Guide.pdf)**\n\n*Click the link above to access the full 50+ page comprehensive tutorial in PDF format.*",
+      isPdfGuide: true,
+      pdfUrl: "/C-Cube_Learning_Guide.pdf"
+    },
+    {
       id: 1,
       title: "Introduction to Blockchain Technology",
       category: "Fundamentals",
@@ -760,9 +818,20 @@ const Learn = () => {
               <MaterialPreview>
                 {expandedMaterials[material.id] ? material.fullContent : material.preview}
               </MaterialPreview>
-              <ReadMoreButton onClick={() => toggleMaterial(material.id)}>
-                {expandedMaterials[material.id] ? 'Read Less' : 'Read More'}
-              </ReadMoreButton>
+              <ButtonContainer>
+                <ReadMoreButton onClick={() => toggleMaterial(material.id)}>
+                  {expandedMaterials[material.id] ? 'Read Less' : 'Read More'}
+                </ReadMoreButton>
+                {material.isPdfGuide && material.pdfUrl && (
+                  <PDFDownloadButton 
+                    href={material.pdfUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Download PDF Guide
+                  </PDFDownloadButton>
+                )}
+              </ButtonContainer>
             </MaterialCard>
           ))
         ) : (
