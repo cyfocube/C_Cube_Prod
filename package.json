@@ -2,7 +2,7 @@
   "name": "secure-cold-wallet",
   "version": "1.0.0",
   "description": "Secure offline cold wallet application for multiple blockchains",
-  "main": "electron/main.js",
+  "main": "public/electron.js",
   "scripts": {
     "start": "concurrently \"cross-env BROWSER=none PORT=9000 npm run react-start\" \"wait-on http://localhost:9000 && electron .\"",
     "start-web": "react-scripts start",
@@ -13,11 +13,19 @@
     "electron-build": "electron-builder",
     "build": "npm run react-build && npm run electron-build",
     "build-web": "react-scripts build",
+    "build-desktop": "npm run react-build && npm run dist",
+    "dist": "electron-builder --publish=never",
+    "dist-mac": "npm run react-build && electron-builder --mac",
+    "dist-win": "npm run react-build && electron-builder --win",
+    "dist-all": "npm run react-build && electron-builder --mac --win",
     "release": "npm run react-build && electron-builder --publish=always",
+    "build-desktop-app": "node build-desktop.js",
+    "deploy-downloads": "node deploy-downloads.js",
+    "build-and-deploy": "npm run build-desktop-app && npm run deploy-downloads",
     "serve": "npx serve -s build -l 3000",
     "preview": "npm run build-web && npm run serve"
   },
-  "author": "",
+  "author": "C-Cube Development Team",
   "license": "MIT",
   "homepage": "./",
   "dependencies": {
@@ -47,31 +55,55 @@
     "wait-on": "^6.0.1"
   },
   "build": {
-    "appId": "com.securecoldwallet.app",
-    "productName": "C-Cube",
+    "appId": "com.ccube.coldwallet",
+    "productName": "C-Cube Cold Wallet",
+    "copyright": "Copyright © 2024 ${author}",
     "files": [
       "build/**/*",
-      "electron/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "public/electron.js",
+      "public/preload.js"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "assets",
+      "output": "dist"
     },
+    "extraResources": [
+      {
+        "from": "public/C-Cube_Learning_Guide.pdf",
+        "to": "app/C-Cube_Learning_Guide.pdf"
+      }
+    ],
     "mac": {
       "category": "public.app-category.finance",
-      "target": "dmg"
+      "target": {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      },
+      "icon": "assets/icon.icns"
     },
     "win": {
       "target": [
-        "nsis"
-      ]
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "icon": "assets/icon.ico"
     },
     "linux": {
       "target": [
         "AppImage",
         "deb"
       ],
-      "category": "Finance"
+      "category": "Finance",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   },
   "browserslist": {

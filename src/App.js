@@ -21,6 +21,7 @@ import AboutUs from './pages/AboutUs';
 import Community from './pages/Community';
 import FAQ from './pages/FAQ_Fixed';
 import ComingSoon from './pages/ComingSoon';
+import Downloads from './pages/Downloads';
 import SecurityPrompt from './components/SecurityPrompt';
 
 function App() {
@@ -117,6 +118,8 @@ function App() {
         return <Community onNavigate={handlePageNavigation} />;
       case 'faq':
         return <FAQ onNavigate={handlePageNavigation} />;
+      case 'downloads':
+        return <Downloads onNavigate={handlePageNavigation} />;
       case 'coming-soon':
         return <ComingSoon onNavigate={handlePageNavigation} />;
       case 'c-cube':

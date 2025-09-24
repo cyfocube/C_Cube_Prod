@@ -344,13 +344,13 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
               setShowDownloadDropdown(!showDownloadDropdown);
               setShowAppsDropdown(false);
             }}>
-              Download ▼
+              Downloads ▼
             </NavItem>
             {showDownloadDropdown && (
               <AppsDropdownMenu>
                 <DropdownItem 
                   className="available"
-                  onClick={() => handleNavClick('c-cube')}
+                  onClick={() => handleNavClick('downloads')}
                 >
                   Wallet
                 </DropdownItem>
