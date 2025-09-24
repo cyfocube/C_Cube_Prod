@@ -251,10 +251,12 @@ const DisclaimerText = styled.div`
 const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showAppsDropdown, setShowAppsDropdown] = useState(false);
+  const [showDownloadDropdown, setShowDownloadDropdown] = useState(false);
 
   const handleNavClick = (page) => {
     setMobileMenuOpen(false);
     setShowAppsDropdown(false);
+    setShowDownloadDropdown(false);
     if (onNavigate) onNavigate(page);
     if (setCurrentPage) setCurrentPage(page);
   };
@@ -262,6 +264,7 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
   const handleLaunchApp = () => {
     setMobileMenuOpen(false);
     setShowAppsDropdown(false);
+    setShowDownloadDropdown(false);
     if (onNavigate) onNavigate('c-cube');
   };
 
@@ -288,7 +291,10 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
           </NavItem>
 
           <AppsDropdown>
-            <NavItem onClick={() => setShowAppsDropdown(!showAppsDropdown)}>
+            <NavItem onClick={() => {
+              setShowAppsDropdown(!showAppsDropdown);
+              setShowDownloadDropdown(false);
+            }}>
               Platform ▼
             </NavItem>
             {showAppsDropdown && (
@@ -328,6 +334,25 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
                   onClick={(e) => e.preventDefault()}
                 >
                   Secure Communication Hub
+                </DropdownItem>
+              </AppsDropdownMenu>
+            )}
+          </AppsDropdown>
+
+          <AppsDropdown>
+            <NavItem onClick={() => {
+              setShowDownloadDropdown(!showDownloadDropdown);
+              setShowAppsDropdown(false);
+            }}>
+              Download ▼
+            </NavItem>
+            {showDownloadDropdown && (
+              <AppsDropdownMenu>
+                <DropdownItem 
+                  className="available"
+                  onClick={() => handleNavClick('c-cube')}
+                >
+                  Wallet
                 </DropdownItem>
               </AppsDropdownMenu>
             )}
