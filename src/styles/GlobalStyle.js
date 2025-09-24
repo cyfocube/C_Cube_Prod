@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import backgroundImage from '../assets/images/Bakgrd3.png';
 
 export const theme = {
   colors: {
@@ -45,11 +46,17 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: ${({ theme }) => theme.fonts.main}; /* This keeps Share Tech Mono for C-Cube wallet */
     background-color: ${({ theme }) => theme.colors.background};
-    background-image: url('/Images/Bakgrd3.png');
+    background-image: url(${backgroundImage});
     background-size: cover;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100vh;
+    
+    /* Mobile fallback for background-attachment: fixed issues */
+    @media (max-width: 768px) {
+      background-attachment: scroll;
+    }
     color: ${({ theme }) => theme.colors.text};
     position: relative;
     overflow-x: hidden;

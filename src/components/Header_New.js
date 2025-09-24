@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import CCubeLogo from './CyFoCubeLogo';
+import backgroundImage from '../assets/images/Bakgrd3.png';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -202,11 +203,16 @@ const DisclaimerContainer = styled.div`
   right: 0;
   z-index: 999;
   background-color: #0c0c0c;
-  background-image: url('/Images/Bakgrd3.png');
+  background-image: url(${backgroundImage});
   background-size: cover;
-  background-position: right;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  /* Mobile fallback for background-attachment: fixed issues */
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
   border-bottom: 1px solid rgba(220, 38, 38, 0.6);
   height: 35px;
   overflow: hidden;
