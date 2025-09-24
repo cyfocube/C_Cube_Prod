@@ -205,7 +205,7 @@ const CardContent = styled.p`
   line-height: 1.6;
 `;
 
-const Content = () => {
+const Content = ({ onNavigate }) => {
   return (
     <>
       <ContentContainer className="website-page">
@@ -371,7 +371,7 @@ const Content = () => {
         </ContentBody>
       </ContentCard>
       </ContentContainer>
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </>
   );
 };

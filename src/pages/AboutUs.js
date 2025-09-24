@@ -270,7 +270,7 @@ const AboutUs = ({ onNavigate }) => {
             </HeroSubtitle>
             <HeroTitle>Disclaimer</HeroTitle>
             <HeroSubtitle>
-              The resources in this platform, including our tools, are for educational purposes only. Do not send real assets to wallets created on this platform. While our platform can interface with real-world blockchain networks, we strongly encourage everyone to use this platform strictly for educational and learning purposes.
+              The resources in this platform, including our tools, are for educational purposes only. Do not send real assets to wallets created on this platform. While our platform can interface with real-world blockchain networks, we strongly encourage everyone to use this platform strictly for educational and learning purposes. Our platform will not ask you to connect your real wallet to our tools. Additionally, our tools do not store any information created to a backend storage.
             </HeroSubtitle>
           </TextContainer>
         </HeroContent>
@@ -283,7 +283,7 @@ const AboutUs = ({ onNavigate }) => {
             <MissionIcon>🎯</MissionIcon>
             <MissionTitle>Democratize Security</MissionTitle>
             <MissionDescription>
-              Breaking down barriers to cybersecurity education by providing free, accessible tools and learning resources for everyone.
+              Breaking down barriers to blockchain education by providing free, accessible tools and learning resources for everyone.
             </MissionDescription>
           </MissionCard>
           <MissionCard>
@@ -297,7 +297,7 @@ const AboutUs = ({ onNavigate }) => {
             <MissionIcon>📚</MissionIcon>
             <MissionTitle>Educate & Empower</MissionTitle>
             <MissionDescription>
-              Providing comprehensive learning materials and hands-on experiences to master cybersecurity concepts and real-world applications.
+              Providing comprehensive learning materials and hands-on experiences to master blockchain concepts and real-world applications.
             </MissionDescription>
           </MissionCard>
         </MissionGrid>
@@ -310,7 +310,7 @@ const AboutUs = ({ onNavigate }) => {
             <ValueIcon>🌍</ValueIcon>
             <ValueTitle>Accessibility</ValueTitle>
             <ValueDescription>
-              Security shouldn't be a privilege. We ensure our tools and educational content are accessible to people of all ages, backgrounds, and technical skill levels, fostering an inclusive cybersecurity community.
+              Security shouldn't be a privilege. We ensure our tools and educational content are accessible to people of all ages, backgrounds, and technical skill levels, fostering an inclusive blockchain security community.
             </ValueDescription>
           </ValueCard>
           <ValueCard>
@@ -361,7 +361,7 @@ const AboutUs = ({ onNavigate }) => {
         </CTAButton>
       </CTASection>
 
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </AboutContainer>
   );
 };

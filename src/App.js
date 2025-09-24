@@ -108,21 +108,21 @@ function App() {
   const renderWebsitePages = () => {
     switch (currentPage) {
       case 'landing':
-        return <Landing onAppSelect={handlePageNavigation} />;
+        return <Landing onAppSelect={handlePageNavigation} onNavigate={handlePageNavigation} />;
       case 'content':
-        return <Learn />;
+        return <Learn onNavigate={handlePageNavigation} />;
       case 'about':
         return <AboutUs onNavigate={handlePageNavigation} />;
       case 'community':
         return <Community onNavigate={handlePageNavigation} />;
       case 'faq':
-        return <FAQ />;
+        return <FAQ onNavigate={handlePageNavigation} />;
       case 'coming-soon':
         return <ComingSoon onNavigate={handlePageNavigation} />;
       case 'c-cube':
         return renderCCubeApp();
       default:
-        return <Landing onAppSelect={handlePageNavigation} />;
+        return <Landing onAppSelect={handlePageNavigation} onNavigate={handlePageNavigation} />;
     }
   };
 

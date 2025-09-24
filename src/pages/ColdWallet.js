@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import QRCode from 'qrcode.react';
 import CyberSecurityHeader from '../components/CyberSecurityHeader';
 import TokenBackupRestoreSection from '../components/TokenBackupRestoreSection';
+import Footer from '../components/Footer_New';
 import networks from '../utils/networks';
 
 const WalletGlobalStyle = createGlobalStyle`
@@ -953,7 +954,7 @@ const InfoText = styled.p`
   font-family: ${({ theme }) => theme.fonts.sans};
 `;
 
-const ColdWallet = () => {
+const ColdWallet = ({ onNavigate }) => {
   const { 
     activeWallet, 
     wallets, 
@@ -4268,6 +4269,7 @@ const ColdWallet = () => {
     </WalletContainer>
     </ConsoleFrame>
     </PageWrapper>
+    <Footer onNavigate={onNavigate} />
     </>
   );
 };

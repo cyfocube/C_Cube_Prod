@@ -20,9 +20,11 @@ const LearnContainer = styled.div`
 const Header = styled.div`
   text-align: center;
   margin-bottom: 40px;
+  margin-top: 60px;
   
   @media (max-width: 768px) {
     margin-bottom: 30px;
+    margin-top: 50px;
   }
 `;
 

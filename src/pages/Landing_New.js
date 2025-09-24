@@ -315,7 +315,7 @@ const CTAButton = styled.button`
   }
 `;
 
-const Landing = ({ onAppSelect }) => {
+const Landing = ({ onAppSelect, onNavigate }) => {
   const handleLaunchApp = () => {
     console.log('Launch app clicked, onAppSelect:', onAppSelect);
     if (onAppSelect) {
@@ -435,7 +435,7 @@ const Landing = ({ onAppSelect }) => {
         </AppsGrid>
       </AppsSection>
 
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </LandingContainer>
   );
 };

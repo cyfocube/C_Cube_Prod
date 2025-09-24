@@ -30,6 +30,10 @@ const Logo = styled.div`
   position: absolute;
   left: 0px;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const LogoText = styled.span`
@@ -191,6 +195,59 @@ const LaunchAppButton = styled.button`
   }
 `;
 
+const DisclaimerContainer = styled.div`
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #0c0c0c;
+  background-image: url('/Images/Bakgrd3.png');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.6);
+  height: 35px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.8);
+    z-index: 1;
+    pointer-events: none;
+  }
+`;
+
+const DisclaimerText = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 0.85rem;
+  color: #dc2626;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: scrollLeft 40s linear infinite;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+`;
+
 const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showAppsDropdown, setShowAppsDropdown] = useState(false);
@@ -209,11 +266,12 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
   };
 
   return (
-    <HeaderContainer className="website-page">
-      <HeaderContent>
-        <Logo>
-          <CCubeLogo onClick={() => handleNavClick('landing')} />
-        </Logo>
+    <>
+      <HeaderContainer className="website-page">
+        <HeaderContent>
+          <Logo>
+            <CCubeLogo onClick={() => handleNavClick('landing')} />
+          </Logo>
 
         <Nav isOpen={mobileMenuOpen}>
           <NavItem
@@ -304,6 +362,13 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
         </MobileMenuButton>
       </HeaderContent>
     </HeaderContainer>
+    
+    <DisclaimerContainer>
+      <DisclaimerText>
+        ⚠️ EDUCATIONAL USE ONLY: Do not send real assets to wallets created on this platform. While we can interface with real blockchain networks, use this platform strictly for educational and learning purposes only.
+      </DisclaimerText>
+    </DisclaimerContainer>
+    </>
   );
 };
 

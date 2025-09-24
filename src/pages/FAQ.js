@@ -213,7 +213,7 @@ const NoResults = styled.div`
   font-style: italic;
 `;
 
-const FAQ = () => {
+const FAQ = ({ onNavigate }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [openItems, setOpenItems] = useState({});
@@ -499,7 +499,7 @@ const FAQ = () => {
         </FAQBody>
       </FAQCard>
       </FAQContainer>
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </>
   );
 };
