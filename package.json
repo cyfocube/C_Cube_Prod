@@ -10,9 +10,10 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
-    "electron-build": "electron-builder",
+    "electron-build": "electron-builder --config electron-builder.json",
     "build": "react-scripts build",
     "build-web": "react-scripts build",
+    "vercel-build": "react-scripts build",
     "build-electron": "npm run react-build && npm run electron-build",
     "build-desktop": "npm run react-build && npm run dist",
     "dist": "electron-builder --publish=never",
@@ -54,58 +55,6 @@
     "electron-builder": "^23.6.0",
     "serve": "^14.2.5",
     "wait-on": "^6.0.1"
-  },
-  "build": {
-    "appId": "com.ccube.coldwallet",
-    "productName": "C-Cube Cold Wallet",
-    "copyright": "Copyright © 2024 ${author}",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*",
-      "public/electron.js",
-      "public/preload.js"
-    ],
-    "directories": {
-      "buildResources": "assets",
-      "output": "dist"
-    },
-    "extraResources": [
-      {
-        "from": "public/C-Cube_Learning_Guide.pdf",
-        "to": "app/C-Cube_Learning_Guide.pdf"
-      }
-    ],
-    "mac": {
-      "category": "public.app-category.finance",
-      "target": {
-        "target": "dmg",
-        "arch": ["x64", "arm64"]
-      },
-      "icon": "assets/icon.icns"
-    },
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": ["x64", "ia32"]
-        }
-      ],
-      "icon": "assets/icon.ico"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "Finance",
-      "icon": "assets/icon.png"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    }
   },
   "browserslist": {
     "production": [

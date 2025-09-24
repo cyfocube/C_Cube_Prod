@@ -1,0 +1,52 @@
+{
+  "appId": "com.ccube.coldwallet",
+  "productName": "C-Cube Cold Wallet",
+  "copyright": "Copyright © 2024 C-Cube Development Team",
+  "files": [
+    "build/**/*",
+    "node_modules/**/*",
+    "public/electron.js",
+    "public/preload.js"
+  ],
+  "directories": {
+    "buildResources": "assets",
+    "output": "dist"
+  },
+  "extraResources": [
+    {
+      "from": "public/C-Cube_Learning_Guide.pdf",
+      "to": "app/C-Cube_Learning_Guide.pdf"
+    }
+  ],
+  "mac": {
+    "category": "public.app-category.finance",
+    "target": {
+      "target": "dmg",
+      "arch": ["x64", "arm64"]
+    },
+    "icon": "assets/icon.icns"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64", "ia32"]
+      }
+    ],
+    "icon": "assets/icon.ico"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb"
+    ],
+    "category": "Finance",
+    "icon": "assets/icon.png"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}

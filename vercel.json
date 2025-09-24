@@ -1,16 +1,9 @@
 {
   "version": 2,
   "name": "c-cube-tutorial-wallet",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "build",
+  "installCommand": "npm install --production=false --ignore-scripts",
   "routes": [
     {
       "src": "/static/(.*)",

@@ -1,0 +1,15 @@
+# Ignore Electron-related files during Vercel deployment
+electron/
+dist/
+*.dmg
+*.exe
+*.AppImage
+*.deb
+build-desktop.js
+deploy-downloads.js
+prepare-build.js
+assets/
+public/electron.js
+public/preload.js
+electron-builder.json
+MACOS_INSTALL_GUIDE.md
