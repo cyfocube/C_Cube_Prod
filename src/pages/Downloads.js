@@ -154,7 +154,7 @@ const Downloads = () => {
       icon: '🪟',
       description: 'For Windows 10/11 (64-bit)',
       filePattern: '.exe',
-      fileName: 'C-Cube Cold Wallet-1.0.0.exe'
+      fileName: 'C-Cube Cold Wallet Setup 1.0.0.exe'
     },
     {
       id: 'linux',
@@ -175,9 +175,11 @@ const Downloads = () => {
     try {
       // Simplified approach: Set known available downloads
       // macOS downloads are confirmed to be available (130MB+ files)
+      // Windows installer is also available (720MB file)
       const knownAvailableFiles = [
         'C-Cube Cold Wallet-1.0.0.dmg',           // macOS Intel - 133MB
-        'C-Cube Cold Wallet-1.0.0-arm64.dmg'     // macOS Apple Silicon - 130MB
+        'C-Cube Cold Wallet-1.0.0-arm64.dmg',    // macOS Apple Silicon - 130MB
+        'C-Cube Cold Wallet Setup 1.0.0.exe'     // Windows installer - 720MB
       ];
       
       const downloads = platforms.map(platform => ({
@@ -194,10 +196,14 @@ const Downloads = () => {
     } catch (error) {
       console.error('Error setting up downloads:', error);
       
-      // Even if there's an error, show macOS as available since we know they exist
+      // Even if there's an error, show known available platforms
       const downloads = platforms.map(platform => ({
         ...platform,
-        available: ['C-Cube Cold Wallet-1.0.0.dmg', 'C-Cube Cold Wallet-1.0.0-arm64.dmg'].includes(platform.fileName),
+        available: [
+          'C-Cube Cold Wallet-1.0.0.dmg', 
+          'C-Cube Cold Wallet-1.0.0-arm64.dmg',
+          'C-Cube Cold Wallet Setup 1.0.0.exe'
+        ].includes(platform.fileName),
         version: '1.0.0'
       }));
       
