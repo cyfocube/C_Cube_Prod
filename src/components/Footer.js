@@ -123,7 +123,7 @@ const Footer = () => {
             <li><a href="#">Educational Content</a></li>
             <li><a href="#">Frequently Asked Questions</a></li>
             <li><a href="#">Community Forum</a></li>
-            <li><a href="#">Contact Support</a></li>
+            <li><a href="mailto:admin@citadelcube.com">Contact Support</a></li>
           </ul>
         </FooterSection>
 

@@ -16,7 +16,7 @@
   from = "/downloads/*"
   to = "/downloads/:splat"
   status = 200
-  force = false
+  force = true
 
 # Specific rule for C-Cube Learning Guide PDF
 [[redirects]]
@@ -68,3 +68,29 @@
     Content-Type = "application/pdf"
     Cache-Control = "public, max-age=3600"
     Content-Disposition = "inline"
+
+[[headers]]
+  for = "/downloads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Access-Control-Allow-Headers = "Range, Content-Type"
+
+[[headers]]
+  for = "*.dmg"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment"
+
+[[headers]]
+  for = "*.exe"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment"
+
+[[headers]]
+  for = "*.AppImage"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment"

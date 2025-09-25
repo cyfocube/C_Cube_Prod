@@ -173,22 +173,38 @@ const Downloads = () => {
   const checkAvailableDownloads = async () => {
     setLoading(true);
     try {
-      // Check which download files exist
+      // Check which download files exist using a more reliable method
       const downloads = [];
       
       for (const platform of platforms) {
         try {
-          // Check if the file exists by trying to fetch it
-          const response = await fetch(`/downloads/${platform.fileName}`, { method: 'HEAD' });
+          // Use a Range request to check if file exists without downloading it
+          const response = await fetch(`/downloads/${platform.fileName}`, { 
+            method: 'GET',
+            headers: {
+              'Range': 'bytes=0-0'
+            }
+          });
+          
+          // File exists if we get 206 (Partial Content) or 200 (OK)
+          const available = response.status === 206 || response.status === 200;
+          
           downloads.push({
             ...platform,
-            available: response.ok,
+            available,
             version: '1.0.0'
           });
         } catch (error) {
+          // If network request fails, check against known available files
+          const availableFiles = [
+            'C-Cube Cold Wallet-1.0.0.dmg',
+            'C-Cube Cold Wallet-1.0.0-arm64.dmg'
+          ];
+          
           downloads.push({
             ...platform,
-            available: false
+            available: availableFiles.includes(platform.fileName),
+            version: '1.0.0'
           });
         }
       }
@@ -196,6 +212,20 @@ const Downloads = () => {
       setAvailableDownloads(downloads);
     } catch (error) {
       console.error('Error checking downloads:', error);
+      
+      // Fallback: Use known available files
+      const availableFiles = [
+        'C-Cube Cold Wallet-1.0.0.dmg',
+        'C-Cube Cold Wallet-1.0.0-arm64.dmg'
+      ];
+      
+      const downloads = platforms.map(platform => ({
+        ...platform,
+        available: availableFiles.includes(platform.fileName),
+        version: '1.0.0'
+      }));
+      
+      setAvailableDownloads(downloads);
     } finally {
       setLoading(false);
     }
