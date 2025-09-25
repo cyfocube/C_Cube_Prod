@@ -173,55 +173,31 @@ const Downloads = () => {
   const checkAvailableDownloads = async () => {
     setLoading(true);
     try {
-      // Check which download files exist using a more reliable method
-      const downloads = [];
-      
-      for (const platform of platforms) {
-        try {
-          // Use a Range request to check if file exists without downloading it
-          const response = await fetch(`/downloads/${platform.fileName}`, { 
-            method: 'GET',
-            headers: {
-              'Range': 'bytes=0-0'
-            }
-          });
-          
-          // File exists if we get 206 (Partial Content) or 200 (OK)
-          const available = response.status === 206 || response.status === 200;
-          
-          downloads.push({
-            ...platform,
-            available,
-            version: '1.0.0'
-          });
-        } catch (error) {
-          // If network request fails, check against known available files
-          const availableFiles = [
-            'C-Cube Cold Wallet-1.0.0.dmg',
-            'C-Cube Cold Wallet-1.0.0-arm64.dmg'
-          ];
-          
-          downloads.push({
-            ...platform,
-            available: availableFiles.includes(platform.fileName),
-            version: '1.0.0'
-          });
-        }
-      }
-      
-      setAvailableDownloads(downloads);
-    } catch (error) {
-      console.error('Error checking downloads:', error);
-      
-      // Fallback: Use known available files
-      const availableFiles = [
-        'C-Cube Cold Wallet-1.0.0.dmg',
-        'C-Cube Cold Wallet-1.0.0-arm64.dmg'
+      // Simplified approach: Set known available downloads
+      // macOS downloads are confirmed to be available (130MB+ files)
+      const knownAvailableFiles = [
+        'C-Cube Cold Wallet-1.0.0.dmg',           // macOS Intel - 133MB
+        'C-Cube Cold Wallet-1.0.0-arm64.dmg'     // macOS Apple Silicon - 130MB
       ];
       
       const downloads = platforms.map(platform => ({
         ...platform,
-        available: availableFiles.includes(platform.fileName),
+        available: knownAvailableFiles.includes(platform.fileName),
+        version: '1.0.0'
+      }));
+      
+      setAvailableDownloads(downloads);
+      
+      // Optional: Log for debugging on production
+      console.log('Downloads status:', downloads.map(d => ({ name: d.name, available: d.available })));
+      
+    } catch (error) {
+      console.error('Error setting up downloads:', error);
+      
+      // Even if there's an error, show macOS as available since we know they exist
+      const downloads = platforms.map(platform => ({
+        ...platform,
+        available: ['C-Cube Cold Wallet-1.0.0.dmg', 'C-Cube Cold Wallet-1.0.0-arm64.dmg'].includes(platform.fileName),
         version: '1.0.0'
       }));
       
@@ -299,6 +275,12 @@ const Downloads = () => {
                   >
                     {platform.available ? 'Download Now' : 'Coming Soon'}
                   </DownloadButton>
+                  {/* Debug info - remove after testing */}
+                  {process.env.NODE_ENV === 'development' && (
+                    <div style={{ fontSize: '0.8rem', color: '#666', marginTop: '0.5rem' }}>
+                      Debug: {platform.fileName} - {platform.available ? 'Available' : 'Not Available'}
+                    </div>
+                  )}
                 </DownloadCard>
               );
             })}
