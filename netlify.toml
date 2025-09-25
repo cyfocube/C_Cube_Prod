@@ -13,17 +13,26 @@
   NPM_VERSION = "9"
 
 [[redirects]]
-  from = "/*.pdf"
-  to = "/:splat.pdf"
-  status = 200
-  force = false
-
-[[redirects]]
   from = "/downloads/*"
   to = "/downloads/:splat"
   status = 200
   force = false
 
+# Specific rule for C-Cube Learning Guide PDF
+[[redirects]]
+  from = "/C-Cube_Learning_Guide.pdf"
+  to = "/C-Cube_Learning_Guide.pdf"
+  status = 200
+  force = true
+
+# General PDF handling
+[[redirects]]
+  from = "/*.pdf"
+  to = "/:splat.pdf"
+  status = 200
+  force = true
+
+# Catch-all for SPA routing (must be last)
 [[redirects]]
   from = "/*"
   to = "/index.html"
