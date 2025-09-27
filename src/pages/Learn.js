@@ -402,7 +402,9 @@ const VideoCard = styled(MaterialCard)`
 const VideoThumbnail = styled.div`
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: ${props => props.thumbnail 
+    ? `url('/videos/${props.thumbnail}') center/cover no-repeat` 
+    : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
   border-radius: 12px;
   margin-bottom: 16px;
   display: flex;
@@ -417,10 +419,27 @@ const VideoThumbnail = styled.div`
     color: white;
     opacity: 0.9;
     transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   &:hover::before {
     transform: scale(1.1);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover::after {
+    background: rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -471,6 +490,68 @@ const TopicTag = styled.span`
   border-radius: 4px;
   font-size: 0.7rem;
   font-weight: 500;
+`;
+
+const VideoModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+`;
+
+const VideoModalContent = styled.div`
+  background: rgba(26, 26, 46, 0.95);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 800px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+const VideoModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const VideoModalTitle = styled.h3`
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+const VideoPlayer = styled.video`
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  border-radius: 8px;
+  background: #000;
 `;
 
 const AITutorSection = styled.div`
@@ -591,6 +672,8 @@ const Learn = () => {
   const [activeSection, setActiveSection] = useState('AI Tutor');
   const [expandedMaterials, setExpandedMaterials] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const sections = ['AI Tutor', 'Materials', 'Video'];
 
@@ -666,10 +749,10 @@ const Learn = () => {
       id: 1,
       title: "Cyber Threats: Bridging Security Gaps",
       duration: "00:13",
-      difficulty: "Beginner",
       description: "Bridging the gap that makes attacks possible",
       topics: ["Cyber Security", "Attack Prevention", "Security Education"],
-      videoFile: "hacker_In_Trouble.mov"
+      videoFile: "hacker_In_Trouble.mov",
+      thumbnail: "hacker_In_Trouble_thumbnail.jpg"
     },
     {
       id: 2,
@@ -871,7 +954,17 @@ const Learn = () => {
         {filteredVideos.length > 0 ? (
           filteredVideos.map(video => (
             <VideoCard key={video.id}>
-              <VideoThumbnail>
+              <VideoThumbnail 
+                thumbnail={video.thumbnail}
+                onClick={() => {
+                  if (video.videoFile) {
+                    setSelectedVideo(video);
+                    setIsVideoModalOpen(true);
+                  } else {
+                    alert('Video coming soon!');
+                  }
+                }}
+              >
                 <DifficultyBadge difficulty={video.difficulty}>
                   {video.difficulty}
                 </DifficultyBadge>
@@ -890,8 +983,8 @@ const Learn = () => {
                 style={{ marginTop: '12px' }}
                 onClick={() => {
                   if (video.videoFile) {
-                    const videoUrl = `/videos/${video.videoFile}`;
-                    window.open(videoUrl, '_blank');
+                    setSelectedVideo(video);
+                    setIsVideoModalOpen(true);
                   } else {
                     alert('Video coming soon!');
                   }
@@ -970,6 +1063,27 @@ const Learn = () => {
           </ContentSection>
         </LearnContainer>
       </PageContent>
+      
+      {/* Video Modal */}
+      {isVideoModalOpen && selectedVideo && (
+        <VideoModal onClick={() => setIsVideoModalOpen(false)}>
+          <VideoModalContent onClick={(e) => e.stopPropagation()}>
+            <VideoModalHeader>
+              <VideoModalTitle>{selectedVideo.title}</VideoModalTitle>
+              <CloseButton onClick={() => setIsVideoModalOpen(false)}>
+                ×
+              </CloseButton>
+            </VideoModalHeader>
+            <VideoPlayer
+              controls
+              autoPlay
+              src={`/videos/${selectedVideo.videoFile}`}
+            >
+              Your browser does not support the video tag.
+            </VideoPlayer>
+          </VideoModalContent>
+        </VideoModal>
+      )}
     </PageBackground>
   );
 };
