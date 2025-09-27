@@ -21,7 +21,8 @@ const PromptOverlay = styled.div`
 `;
 
 const PromptContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.cardBackground};
+  background-color: ${({ theme }) => theme?.colors?.cardBackground || '#1a1a1a'};
+  color: ${({ theme }) => theme?.colors?.text || '#ffffff'};
   padding: 2rem;
   border-radius: 8px;
   max-width: 600px;
@@ -47,7 +48,7 @@ const PromptContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  color: ${({ theme }) => theme.colors.danger};
+  color: ${({ theme }) => theme?.colors?.danger || '#dc3545'};
   margin-bottom: 1.5rem;
   text-align: center;
   
@@ -76,7 +77,7 @@ const Content = styled.div`
   }
 
   strong {
-    color: ${({ theme }) => theme.colors.warning};
+    color: ${({ theme }) => theme?.colors?.warning || '#ffc107'};
   }
   
   @media (max-width: 768px) {
@@ -137,7 +138,11 @@ const CheckboxContainer = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: ${({ theme, disabled }) => disabled ? theme.colors.secondary : theme.colors.primary};
+  background-color: ${({ theme, disabled }) => 
+    disabled 
+      ? (theme?.colors?.secondary || '#6c757d') 
+      : (theme?.colors?.primary || '#007bff')
+  };
   color: white;
   width: 100%;
   padding: 0.75rem;
