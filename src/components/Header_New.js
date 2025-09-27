@@ -33,7 +33,11 @@ const Logo = styled.div`
   z-index: 10;
 
   @media (max-width: 768px) {
-    display: none;
+    display: flex;
+    position: absolute;
+    right: 60px;
+    left: auto;
+    z-index: 10;
   }
 `;
 
