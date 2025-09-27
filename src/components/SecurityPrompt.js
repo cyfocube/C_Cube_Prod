@@ -12,6 +12,12 @@ const PromptOverlay = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    padding: 20px 0;
+  }
 `;
 
 const PromptContainer = styled.div`
@@ -21,12 +27,39 @@ const PromptContainer = styled.div`
   max-width: 600px;
   width: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    width: 95%;
+    margin: 20px auto;
+    max-height: calc(100vh - 40px);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 10px auto;
+    max-height: calc(100vh - 20px);
+  }
 `;
 
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.danger};
   margin-bottom: 1.5rem;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 const Content = styled.div`
@@ -45,15 +78,61 @@ const Content = styled.div`
   strong {
     color: ${({ theme }) => theme.colors.warning};
   }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    
+    p {
+      margin-bottom: 0.8rem;
+    }
+    
+    ul {
+      margin-left: 1rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    
+    ul {
+      margin-left: 0.8rem;
+    }
+  }
 `;
 
 const CheckboxContainer = styled.div`
   margin-bottom: 1.5rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   
   input {
     margin-right: 10px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  
+  label {
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+    
+    label {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    input {
+      margin-right: 8px;
+    }
+    
+    label {
+      font-size: 0.85rem;
+    }
   }
 `;
 
@@ -67,6 +146,25 @@ const Button = styled.button`
   border-radius: 4px;
   cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
   opacity: ${({ disabled }) => disabled ? 0.7 : 1};
+  border: none;
+  transition: all 0.3s ease;
+  
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const SecurityPrompt = ({ onAcknowledge }) => {
