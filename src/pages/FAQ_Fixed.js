@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer_New';
+import SectionNavigation from '../components/SectionNavigation';
+import { handleHashNavigation, updateUrlHash, getHashFromUrl } from '../utils/scrollUtils';
 
 const FAQContainer = styled.div`
   min-height: 100vh;
@@ -181,6 +184,7 @@ const NoResults = styled.div`
 `;
 
 const FAQ = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [openItems, setOpenItems] = useState({});
@@ -193,6 +197,28 @@ const FAQ = () => {
     { id: 'wallet', label: 'Wallet' },
     { id: 'defi', label: 'DeFi' }
   ];
+
+  // Handle URL hash changes for category navigation
+  useEffect(() => {
+    const hash = getHashFromUrl();
+    if (hash) {
+      const category = categories.find(cat => cat.id === hash);
+      if (category) {
+        setSelectedCategory(hash);
+      }
+    }
+    handleHashNavigation();
+  }, [location]);
+
+  // Function to handle category changes with URL updates
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategory(categoryId);
+    if (categoryId !== 'all') {
+      updateUrlHash(categoryId);
+    } else {
+      updateUrlHash('');
+    }
+  };
 
   const faqData = [
     {
@@ -264,7 +290,7 @@ const FAQ = () => {
               <FilterButton
                 key={category.id}
                 active={selectedCategory === category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => handleCategoryChange(category.id)}
               >
                 {category.label}
               </FilterButton>
@@ -292,6 +318,15 @@ const FAQ = () => {
             ))
           )}
         </FAQCard>
+        
+        {/* Section Navigation for Categories */}
+        <SectionNavigation 
+          sections={categories.filter(cat => cat.id !== 'all').map(cat => ({
+            id: cat.id,
+            label: cat.label
+          }))}
+          currentPage="faq" 
+        />
       </FAQContainer>
       <Footer />
     </>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { PageBackground, PageContent } from '../components/shared/PageBackground';
+import SectionNavigation from '../components/SectionNavigation';
+import { scrollToSection, updateUrlHash, getHashFromUrl, handleHashNavigation, createSectionId } from '../utils/scrollUtils';
 
 const LearnContainer = styled.div`
   max-width: 1200px;
@@ -668,6 +671,8 @@ const QuickTopicButton = styled.button`
 `;
 
 const Learn = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('AI Tutor');
   const [expandedMaterials, setExpandedMaterials] = useState({});
@@ -676,6 +681,36 @@ const Learn = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const sections = ['AI Tutor', 'Materials', 'Video'];
+
+  // Handle URL hash changes and set active section
+  useEffect(() => {
+    const hash = getHashFromUrl();
+    if (hash) {
+      const sectionName = hash.split('-').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ');
+      
+      if (sections.includes(sectionName)) {
+        setActiveSection(sectionName);
+        handleHashNavigation();
+      }
+    }
+  }, [location]);
+
+  // Function to handle section changes with URL updates
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+    setDropdownOpen(false);
+    setSearchTerm('');
+    
+    const sectionId = createSectionId(section);
+    updateUrlHash(sectionId);
+    
+    // Scroll to section
+    setTimeout(() => {
+      scrollToSection(sectionId);
+    }, 100);
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -1054,11 +1089,7 @@ const Learn = () => {
                 <DropdownItem
                   key={section}
                   active={activeSection === section}
-                  onClick={() => {
-                    setActiveSection(section);
-                    setDropdownOpen(false);
-                    setSearchTerm(''); // Clear search when switching sections
-                  }}
+                  onClick={() => handleSectionChange(section)}
                 >
                   {section}
                 </DropdownItem>
@@ -1066,7 +1097,7 @@ const Learn = () => {
             </DropdownMenu>
           </DropdownContainer>
 
-          <ContentSection>
+          <ContentSection id={createSectionId(activeSection)}>
             <SectionTitle>{activeSection}</SectionTitle>
             {renderContent()}
           </ContentSection>
@@ -1093,6 +1124,9 @@ const Learn = () => {
           </VideoModalContent>
         </VideoModal>
       )}
+      
+      {/* Section Navigation */}
+      <SectionNavigation sections={sections} currentPage="learn" />
     </PageBackground>
   );
 };

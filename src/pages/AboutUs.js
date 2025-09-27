@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer_New';
+import SectionNavigation from '../components/SectionNavigation';
+import { handleHashNavigation } from '../utils/scrollUtils';
 
 const AboutContainer = styled.div`
   min-height: 100vh;
@@ -259,9 +262,16 @@ const CTAButton = styled.button`
 `;
 
 const AboutUs = ({ onNavigate }) => {
+  const location = useLocation();
+
+  // Handle hash navigation on component mount and URL changes
+  useEffect(() => {
+    handleHashNavigation();
+  }, [location]);
+
   return (
     <AboutContainer>
-      <HeroSection>
+      <HeroSection id="hero">
         <HeroContent>
           <TextContainer>
             <HeroTitle>C-Cube Security</HeroTitle>
@@ -276,7 +286,7 @@ const AboutUs = ({ onNavigate }) => {
         </HeroContent>
       </HeroSection>
 
-      <MissionSection>
+      <MissionSection id="mission">
         <SectionTitle>Our Mission</SectionTitle>
         <MissionGrid>
           <MissionCard>
@@ -303,7 +313,7 @@ const AboutUs = ({ onNavigate }) => {
         </MissionGrid>
       </MissionSection>
 
-      <ValuesSection>
+      <ValuesSection id="values">
         <SectionTitle>Our Values</SectionTitle>
         <ValuesGrid>
           <ValueCard>
@@ -351,7 +361,7 @@ const AboutUs = ({ onNavigate }) => {
         </ValuesGrid>
       </ValuesSection>
 
-      <CTASection>
+      <CTASection id="join">
         <SectionTitle>Join Our Mission</SectionTitle>
         <HeroSubtitle style={{ maxWidth: '800px', margin: '0 auto 20px' }}>
           Whether you're a beginner looking to learn about cybersecurity or an expert wanting to contribute to the community, there's a place for you at C-Cube. Together, we can build a more secure digital world for everyone.
@@ -362,6 +372,17 @@ const AboutUs = ({ onNavigate }) => {
       </CTASection>
 
       <Footer onNavigate={onNavigate} />
+      
+      {/* Section Navigation */}
+      <SectionNavigation 
+        sections={[
+          { id: 'hero', label: 'Overview' },
+          { id: 'mission', label: 'Our Mission' },
+          { id: 'values', label: 'Our Values' },
+          { id: 'join', label: 'Join Us' }
+        ]} 
+        currentPage="about" 
+      />
     </AboutContainer>
   );
 };
