@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { PageBackground, PageContent } from '../components/shared/PageBackground';
-import SectionNavigation from '../components/SectionNavigation';
 import { scrollToSection, updateUrlHash, getHashFromUrl, handleHashNavigation, createSectionId } from '../utils/scrollUtils';
 
 const LearnContainer = styled.div`

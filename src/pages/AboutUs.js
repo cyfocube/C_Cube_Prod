@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer_New';
-import SectionNavigation from '../components/SectionNavigation';
 import { handleHashNavigation } from '../utils/scrollUtils';
 
 const AboutContainer = styled.div`
@@ -372,17 +371,6 @@ const AboutUs = ({ onNavigate }) => {
       </CTASection>
 
       <Footer onNavigate={onNavigate} />
-      
-      {/* Section Navigation */}
-      <SectionNavigation 
-        sections={[
-          { id: 'hero', label: 'Overview' },
-          { id: 'mission', label: 'Our Mission' },
-          { id: 'values', label: 'Our Values' },
-          { id: 'join', label: 'Join Us' }
-        ]} 
-        currentPage="about" 
-      />
     </AboutContainer>
   );
 };
