@@ -73,7 +73,15 @@ const HeroTitle = styled.h1`
   overflow: visible;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    white-space: normal;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-bottom: 12px;
   }
 `;
 
@@ -87,6 +95,15 @@ const HeroSubtitle = styled.p`
   @media (max-width: 768px) {
     margin-left: auto;
     margin-right: auto;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    padding: 0 5px;
   }
 `;
 
@@ -102,6 +119,13 @@ const HeroStats = styled.div`
     margin-right: auto;
     max-width: 100%;
     gap: 15px;
+    margin-top: 40px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 30px;
   }
 `;
 
@@ -126,6 +150,16 @@ const StatNumber = styled.div`
   margin-bottom: 0px;
   text-align: center;
   white-space: nowrap;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const StatLabel = styled.div`
