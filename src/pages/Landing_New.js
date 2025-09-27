@@ -75,7 +75,10 @@ const HeroTitle = styled.h1`
   overflow: visible;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
+    white-space: normal;
+    line-height: 1.3;
+    text-align: center;
   }
 `;
 
