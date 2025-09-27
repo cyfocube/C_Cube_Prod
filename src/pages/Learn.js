@@ -1124,9 +1124,6 @@ const Learn = () => {
           </VideoModalContent>
         </VideoModal>
       )}
-      
-      {/* Section Navigation */}
-      <SectionNavigation sections={sections} currentPage="learn" />
     </PageBackground>
   );
 };
