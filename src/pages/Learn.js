@@ -664,6 +664,15 @@ const Learn = () => {
   const sampleVideos = [
     {
       id: 1,
+      title: "Cyber Threats: Bridging Security Gaps",
+      duration: "00:13",
+      difficulty: "Beginner",
+      description: "Bridging the gap that makes attacks possible",
+      topics: ["Cyber Security", "Attack Prevention", "Security Education"],
+      videoFile: "hacker_In_Trouble.mov"
+    },
+    {
+      id: 2,
       title: "C-Cube Wallet Setup Tutorial",
       duration: "5:30",
       difficulty: "Beginner",
@@ -671,7 +680,7 @@ const Learn = () => {
       topics: ["Installation", "Initial Setup", "Security Configuration"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Creating Your First Transaction",
       duration: "8:15",
       difficulty: "Beginner",
@@ -679,7 +688,7 @@ const Learn = () => {
       topics: ["Transaction Creation", "Digital Signatures", "Broadcasting"]
     },
     {
-      id: 3,
+      id: 4,
       title: "Advanced Security Features",
       duration: "12:45",
       difficulty: "Intermediate",
@@ -687,7 +696,7 @@ const Learn = () => {
       topics: ["Multi-sig", "Hardware Integration", "Security Auditing"]
     },
     {
-      id: 4,
+      id: 5,
       title: "Multi-Network Support",
       duration: "7:22",
       difficulty: "Intermediate",
@@ -695,7 +704,7 @@ const Learn = () => {
       topics: ["Network Selection", "Custom Networks", "Cross-chain Features"]
     },
     {
-      id: 5,
+      id: 6,
       title: "Backup and Recovery",
       duration: "6:18",
       difficulty: "Essential",
@@ -703,7 +712,7 @@ const Learn = () => {
       topics: ["Seed Phrases", "Recovery Process", "Backup Strategies"]
     },
     {
-      id: 6,
+      id: 7,
       title: "Integration with Hardware Wallets",
       duration: "10:33",
       difficulty: "Advanced",
