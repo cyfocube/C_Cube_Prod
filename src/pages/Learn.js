@@ -756,6 +756,15 @@ const Learn = () => {
     },
     {
       id: 2,
+      title: "Understanding C-Cube Wallet",
+      duration: "04:25",
+      description: "Our comprehensive journey to secure cryptocurrency management with C-Cube",
+      topics: ["C-Cube Wallet", "User Education Guide Video"],
+      videoFile: "AI_Generated_C_Wallet_Tutorial.mp4",
+      thumbnail: "AI_Generated_C_Wallet_Tutorial_Thumbnail.png"
+    },
+    {
+      id: 3,
       title: "C-Cube Wallet Setup Tutorial",
       duration: "5:30",
       difficulty: "Beginner",
@@ -763,7 +772,7 @@ const Learn = () => {
       topics: ["Installation", "Initial Setup", "Security Configuration"]
     },
     {
-      id: 3,
+      id: 4,
       title: "Creating Your First Transaction",
       duration: "8:15",
       difficulty: "Beginner",
@@ -771,7 +780,7 @@ const Learn = () => {
       topics: ["Transaction Creation", "Digital Signatures", "Broadcasting"]
     },
     {
-      id: 4,
+      id: 5,
       title: "Advanced Security Features",
       duration: "12:45",
       difficulty: "Intermediate",

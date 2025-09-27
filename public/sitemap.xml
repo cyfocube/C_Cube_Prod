@@ -32,6 +32,16 @@
             <video:family_friendly>yes</video:family_friendly>
             <video:live>no</video:live>
         </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://c-cube-learn.netlify.app/videos/AI_Generated_C_Wallet_Tutorial_Thumbnail.png</video:thumbnail_loc>
+            <video:title>Understanding C-Cube Wallet</video:title>
+            <video:description>Our comprehensive journey to secure cryptocurrency management with C-Cube</video:description>
+            <video:content_loc>https://c-cube-learn.netlify.app/videos/AI_Generated_C_Wallet_Tutorial.mp4</video:content_loc>
+            <video:duration>265</video:duration>
+            <video:publication_date>2025-09-27</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:live>no</video:live>
+        </video:video>
     </url>
     
     <!-- About Page -->
