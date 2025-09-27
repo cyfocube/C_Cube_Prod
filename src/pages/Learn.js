@@ -886,7 +886,17 @@ const Learn = () => {
                   ))}
                 </VideoTopics>
               )}
-              <ReadMoreButton style={{ marginTop: '12px' }}>
+              <ReadMoreButton 
+                style={{ marginTop: '12px' }}
+                onClick={() => {
+                  if (video.videoFile) {
+                    const videoUrl = `/videos/${video.videoFile}`;
+                    window.open(videoUrl, '_blank');
+                  } else {
+                    alert('Video coming soon!');
+                  }
+                }}
+              >
                 Watch Video
               </ReadMoreButton>
             </VideoCard>
