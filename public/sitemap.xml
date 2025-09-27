@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://c-cube-learn.netlify.app/logo512.png</image:loc>
+            <image:title>C-Cube Learn Logo</image:title>
+            <image:caption>C-Cube Learn - Cryptocurrency Education Platform</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Learn Page -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/learn</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <video:video>
+            <video:thumbnail_loc>https://c-cube-learn.netlify.app/videos/hacker_In_Trouble_thumbnail.jpg</video:thumbnail_loc>
+            <video:title>Cyber Threats: Bridging Security Gaps</video:title>
+            <video:description>Bridging the gap that makes attacks possible</video:description>
+            <video:content_loc>https://c-cube-learn.netlify.app/videos/hacker_In_Trouble.mov</video:content_loc>
+            <video:duration>13</video:duration>
+            <video:publication_date>2025-09-27</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:live>no</video:live>
+        </video:video>
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/about</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Apps Page -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/apps</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Download Page -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/download</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- PDF Guide -->
+    <url>
+        <loc>https://c-cube-learn.netlify.app/C-Cube_Learning_Guide.pdf</loc>
+        <lastmod>2025-09-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>

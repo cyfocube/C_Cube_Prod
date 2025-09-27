@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Important pages for crawling
+Allow: /learn
+Allow: /about
+Allow: /apps
+Allow: /download
+
+# Allow access to media files
+Allow: /videos/
+Allow: /Images/
+Allow: *.pdf
+Allow: *.jpg
+Allow: *.png
+Allow: *.mov
+
+# Block unnecessary files
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: *.json
+Disallow: /downloads/*.exe
+Disallow: /downloads/*.dmg
+Disallow: /downloads/C-Cube_Windows_Setup_1.0.0_part_*
+
+# Sitemap location
+Sitemap: https://c-cube-learn.netlify.app/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1
