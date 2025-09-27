@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer_New';
-import SectionNavigation from '../components/SectionNavigation';
 import { handleHashNavigation, updateUrlHash, getHashFromUrl } from '../utils/scrollUtils';
 
 const FAQContainer = styled.div`
@@ -318,15 +317,6 @@ const FAQ = () => {
             ))
           )}
         </FAQCard>
-        
-        {/* Section Navigation for Categories */}
-        <SectionNavigation 
-          sections={categories.filter(cat => cat.id !== 'all').map(cat => ({
-            id: cat.id,
-            label: cat.label
-          }))}
-          currentPage="faq" 
-        />
       </FAQContainer>
       <Footer />
     </>

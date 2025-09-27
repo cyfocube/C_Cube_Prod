@@ -154,7 +154,7 @@ function App() {
               <AboutUs onNavigate={handlePageNavigation} />
             </>
           } />
-          <Route path="/apps" element={
+          <Route path="/community" element={
             <>
               <Header currentPage="community" onNavigate={handlePageNavigation} />
               <Community onNavigate={handlePageNavigation} />
@@ -166,12 +166,13 @@ function App() {
               <FAQ onNavigate={handlePageNavigation} />
             </>
           } />
-          <Route path="/download" element={
+          <Route path="/downloads" element={
             <>
               <Header currentPage="downloads" onNavigate={handlePageNavigation} />
               <Downloads onNavigate={handlePageNavigation} />
             </>
           } />
+          <Route path="/apps" element={renderCCubeApp()} />
           <Route path="/coming-soon" element={
             <>
               <Header currentPage="coming-soon" onNavigate={handlePageNavigation} />
