@@ -32,6 +32,10 @@ const Logo = styled.div`
   left: 0px;
   z-index: 10;
 
+  @media (max-width: 950px) and (min-width: 769px) {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     display: flex;
     position: absolute;
