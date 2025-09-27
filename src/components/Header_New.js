@@ -89,11 +89,20 @@ const NavItem = styled.button`
     width: 100%;
     text-align: left;
     padding: 12px 16px;
+    margin: 0;
+    display: block;
   }
 `;
 
 const AppsDropdown = styled.div`
   position: relative;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const AppsDropdownMenu = styled.div`
@@ -112,8 +121,13 @@ const AppsDropdownMenu = styled.div`
   @media (max-width: 768px) {
     position: static;
     background: rgba(255, 255, 255, 0.05);
-    margin: 8px 0;
+    margin: 8px 0 8px 0;
     box-shadow: none;
+    border-radius: 8px;
+    padding: 8px 0;
+    width: 100%;
+    left: auto;
+    right: auto;
   }
 `;
 
@@ -150,6 +164,13 @@ const DropdownItem = styled.button`
       background: none;
       color: #e0e0e0;
     }
+  }
+
+  @media (max-width: 768px) {
+    margin: 2px 0;
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
   }
 `;
 
