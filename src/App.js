@@ -66,41 +66,27 @@ function App() {
     // Handle initial security prompt for C-Cube
     if (!isSecurityPromptAcknowledged) {
       return (
-        <SecurityPrompt onAcknowledge={() => setIsSecurityPromptAcknowledged(true)} />
+        <ThemeProvider theme={theme}>
+          <SecurityPrompt onAcknowledge={() => setIsSecurityPromptAcknowledged(true)} />
+        </ThemeProvider>
       );
     }
 
     return (
       <AppProvider>
         {isWebEnvironment && <WebWarningBanner />}
-        <Router>
-          <Layout>
-            <Routes>
-              {isSetup ? (
-                // Wallet is already set up, show main app
-                <>
-                  <Route path="/resources" element={<Resources />} />
-                  <Route path="/wallet" element={<ColdWallet />} />
-                  <Route path="/broadcast" element={<Broadcast />} />
-                  <Route path="*" element={<Navigate to="/wallet" replace />} />
-                </>
-              ) : hasInitialChoice ? (
-                // User has chosen create/recover, but hasn't completed setup
-                <>
-                  <Route path="/setup" element={<SetupWallet onSetupComplete={() => setIsSetup(true)} />} />
-                  <Route path="*" element={<Navigate to="/setup" replace />} />
-                </>
-              ) : (
-                // User needs to choose between create and recover
-                <>
-                  <Route path="/welcome" element={<WelcomeScreen />} />
-                  <Route path="/setup" element={<SetupWallet onSetupComplete={() => setIsSetup(true)} />} />
-                  <Route path="*" element={<Navigate to="/welcome" replace />} />
-                </>
-              )}
-            </Routes>
-          </Layout>
-        </Router>
+        <Layout>
+          {isSetup ? (
+            // Wallet is already set up, show main app
+            <ColdWallet />
+          ) : hasInitialChoice ? (
+            // User has chosen create/recover, but hasn't completed setup
+            <SetupWallet onSetupComplete={() => setIsSetup(true)} />
+          ) : (
+            // User needs to choose between create and recover
+            <WelcomeScreen />
+          )}
+        </Layout>
       </AppProvider>
     );
   };
