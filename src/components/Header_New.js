@@ -32,7 +32,7 @@ const Logo = styled.div`
   left: 0px;
   z-index: 10;
 
-  @media (max-width: 950px) and (min-width: 769px) {
+  @media (max-width: 1400px) and (min-width: 769px) {
     display: none;
   }
 
