@@ -1,0 +1,9 @@
+# This is a placeholder Windows installer
+# To create a real Windows installer, run this project on Windows or use Wine on macOS
+# For now, this serves as a placeholder to demonstrate the download functionality
+
+echo "C-Cube Cold Wallet Windows Installer (Placeholder)"
+echo "Version: 1.0.0"
+echo "To get the actual Windows installer, please:"
+echo "1. Run this project on a Windows machine"
+echo "2. Or install Wine on macOS and run: npm run dist-win"

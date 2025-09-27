@@ -917,7 +917,7 @@ const Learn = () => {
                 {material.isPdfGuide && material.pdfUrl && (
                   <PDFDownloadButton 
                     href={material.pdfUrl} 
-                    target="_blank" 
+                    download="C-Cube_Learning_Guide.pdf"
                     rel="noopener noreferrer"
                   >
                     Download PDF Guide
