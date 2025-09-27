@@ -858,7 +858,7 @@ const Learn = () => {
   const filteredVideos = sampleVideos.filter(video =>
     video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     video.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    video.difficulty.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (video.difficulty && video.difficulty.toLowerCase().includes(searchTerm.toLowerCase())) ||
     (video.topics && video.topics.some(topic => 
       topic.toLowerCase().includes(searchTerm.toLowerCase())
     ))
@@ -1009,9 +1009,11 @@ const Learn = () => {
                   }
                 }}
               >
-                <DifficultyBadge difficulty={video.difficulty}>
-                  {video.difficulty}
-                </DifficultyBadge>
+                {video.difficulty && (
+                  <DifficultyBadge difficulty={video.difficulty}>
+                    {video.difficulty}
+                  </DifficultyBadge>
+                )}
                 <VideoDuration>{video.duration}</VideoDuration>
               </VideoThumbnail>
               <MaterialTitle>{video.title}</MaterialTitle>
