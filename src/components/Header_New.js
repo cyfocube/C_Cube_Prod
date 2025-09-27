@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import CCubeLogo from './CyFoCubeLogo';
 import backgroundImage from '../assets/images/Bakgrd3.png';
@@ -69,7 +70,43 @@ const Nav = styled.nav`
   }
 `;
 
-const NavItem = styled.button`
+const NavItem = styled(Link)`
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  padding: 10px 16px;
+  margin: 0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background: linear-gradient(135deg, #8b7355, #1a1a1a);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(139, 115, 85, 0.1);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #a68660, #000000);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    margin: 0;
+    display: block;
+  }
+`;
+
+const NavButton = styled.button`
   background: none;
   border: none;
   color: #e0e0e0;
@@ -284,60 +321,60 @@ const DisclaimerText = styled.div`
   }
 `;
 
-const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
+const Header = () => {
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showAppsDropdown, setShowAppsDropdown] = useState(false);
   const [showDownloadDropdown, setShowDownloadDropdown] = useState(false);
 
-  const handleNavClick = (page) => {
+  const handleMobileMenuClose = () => {
     setMobileMenuOpen(false);
     setShowAppsDropdown(false);
     setShowDownloadDropdown(false);
-    if (onNavigate) onNavigate(page);
-    if (setCurrentPage) setCurrentPage(page);
   };
 
-  const handleLaunchApp = () => {
-    setMobileMenuOpen(false);
-    setShowAppsDropdown(false);
-    setShowDownloadDropdown(false);
-    if (onNavigate) onNavigate('c-cube');
-  };
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
       <HeaderContainer className="website-page">
         <HeaderContent>
           <Logo>
-            <CCubeLogo onClick={() => handleNavClick('landing')} />
+            <Link to="/">
+              <CCubeLogo />
+            </Link>
           </Logo>
 
         <Nav isOpen={mobileMenuOpen}>
           <NavItem
-            className={currentPage === 'landing' ? 'active' : ''}
-            onClick={() => handleNavClick('landing')}
+            to="/"
+            className={isActive('/') ? 'active' : ''}
+            onClick={handleMobileMenuClose}
           >
             Home
           </NavItem>
           <NavItem
-            className={currentPage === 'content' ? 'active' : ''}
-            onClick={() => handleNavClick('content')}
+            to="/learn"
+            className={isActive('/learn') ? 'active' : ''}
+            onClick={handleMobileMenuClose}
           >
             Learn
           </NavItem>
 
           <AppsDropdown>
-            <NavItem onClick={() => {
+            <NavButton onClick={() => {
               setShowAppsDropdown(!showAppsDropdown);
               setShowDownloadDropdown(false);
             }}>
               Platform ▼
-            </NavItem>
+            </NavButton>
             {showAppsDropdown && (
               <AppsDropdownMenu>
                 <DropdownItem 
+                  as={Link}
+                  to="/apps"
                   className="available"
-                  onClick={() => handleNavClick('c-cube')}
+                  onClick={handleMobileMenuClose}
                 >
                   C-Cube Wallet
                 </DropdownItem>
@@ -376,17 +413,19 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
           </AppsDropdown>
 
           <AppsDropdown>
-            <NavItem onClick={() => {
+            <NavButton onClick={() => {
               setShowDownloadDropdown(!showDownloadDropdown);
               setShowAppsDropdown(false);
             }}>
               Downloads ▼
-            </NavItem>
+            </NavButton>
             {showDownloadDropdown && (
               <AppsDropdownMenu>
                 <DropdownItem 
+                  as={Link}
+                  to="/downloads"
                   className="available"
-                  onClick={() => handleNavClick('downloads')}
+                  onClick={handleMobileMenuClose}
                 >
                   Wallet
                 </DropdownItem>
@@ -395,25 +434,28 @@ const Header = ({ currentPage, setCurrentPage, onNavigate }) => {
           </AppsDropdown>
 
           <NavItem
-            className={currentPage === 'faq' ? 'active' : ''}
-            onClick={() => handleNavClick('faq')}
+            to="/faq"
+            className={isActive('/faq') ? 'active' : ''}
+            onClick={handleMobileMenuClose}
           >
             FAQ
           </NavItem>
           <NavItem
-            className={currentPage === 'community' ? 'active' : ''}
-            onClick={() => handleNavClick('community')}
+            to="/community"
+            className={isActive('/community') ? 'active' : ''}
+            onClick={handleMobileMenuClose}
           >
             Community
           </NavItem>
           <NavItem
-            className={currentPage === 'about' ? 'active' : ''}
-            onClick={() => handleNavClick('about')}
+            to="/about"
+            className={isActive('/about') ? 'active' : ''}
+            onClick={handleMobileMenuClose}
           >
             About Us
           </NavItem>
 
-          <LaunchAppButton onClick={handleLaunchApp}>
+          <LaunchAppButton as={Link} to="/apps" onClick={handleMobileMenuClose}>
             Launch App
           </LaunchAppButton>
         </Nav>

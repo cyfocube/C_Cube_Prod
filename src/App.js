@@ -129,22 +129,63 @@ function App() {
     }
   };
 
-  // For C-Cube app, don't show the main header
-  if (currentPage === 'c-cube') {
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {renderWebsitePages()}
-      </ThemeProvider>
-    );
-  }
-
-  // For all other pages, show the website structure with header
+  // Main website with proper URL routing
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header currentPage={currentPage} onNavigate={handlePageNavigation} />
-      {renderWebsitePages()}
+      <Router>
+        <Routes>
+          {/* Website routes with proper URLs */}
+          <Route path="/" element={
+            <>
+              <Header currentPage="landing" onNavigate={handlePageNavigation} />
+              <Landing onAppSelect={handlePageNavigation} onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/learn" element={
+            <>
+              <Header currentPage="content" onNavigate={handlePageNavigation} />
+              <Learn onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/about" element={
+            <>
+              <Header currentPage="about" onNavigate={handlePageNavigation} />
+              <AboutUs onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/apps" element={
+            <>
+              <Header currentPage="community" onNavigate={handlePageNavigation} />
+              <Community onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/faq" element={
+            <>
+              <Header currentPage="faq" onNavigate={handlePageNavigation} />
+              <FAQ onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/download" element={
+            <>
+              <Header currentPage="downloads" onNavigate={handlePageNavigation} />
+              <Downloads onNavigate={handlePageNavigation} />
+            </>
+          } />
+          <Route path="/coming-soon" element={
+            <>
+              <Header currentPage="coming-soon" onNavigate={handlePageNavigation} />
+              <ComingSoon onNavigate={handlePageNavigation} />
+            </>
+          } />
+          
+          {/* C-Cube app routes (without header) */}
+          <Route path="/c-cube/*" element={renderCCubeApp()} />
+          
+          {/* Fallback to home page */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }
