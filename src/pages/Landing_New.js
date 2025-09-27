@@ -106,7 +106,8 @@ const HeroStats = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    gap: 15px;
+    gap: 8px;
+    padding: 0 10px;
   }
 `;
 
@@ -122,6 +123,12 @@ const StatCard = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 768px) {
+    padding: 8px 4px;
+    min-width: 0;
+    flex: 1;
+  }
 `;
 
 const StatNumber = styled.div`
@@ -131,6 +138,12 @@ const StatNumber = styled.div`
   margin-bottom: 0px;
   text-align: center;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
 `;
 
 const StatLabel = styled.div`
